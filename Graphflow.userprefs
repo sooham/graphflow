@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovement.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DragHandler.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerMovement.js" Line="29" Column="85" />
+      <File FileName="Assets/Scripts/DragHandler.cs" Line="30" Column="2" />
+      <File FileName="Assets/Scripts/SlotDragHandler.cs" Line="16" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
