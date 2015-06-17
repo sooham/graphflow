@@ -7,7 +7,7 @@ var moveAudio : AudioClip;					// The audio to play when moving
 private var moving: boolean = false; 		// is the player currently moving?
 private var playerRigidbody : Rigidbody;
 
-function moveForwardOneUnit() {
+public function moveForwardOneUnit() {
 	// moves the player forwad by one unit
 	// check the moving boolean to check if the player is still moving before calling
 	// Use a couroutine that Lerps between the current position and the final position to allow for successive function calls
@@ -38,10 +38,10 @@ function Start () {
 	}
 }
 
-function FixedUpdate() {
-	// call the moveForwardOneUnit iff the spacebar key is pressed
-	if (Input.GetKeyDown("space") && !moving) {
-		moveForwardOneUnit();
-	}
-}
+//function FixedUpdate() {
+//	// call the moveForwardOneUnit iff the spacebar key is pressed
+//	if (Input.GetKeyDown("space") && !moving) {
+//		moveForwardOneUnit();
+//	}
+//}
 

@@ -6,19 +6,17 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	// Implement the 3 interfaces for begin, during and end of dragging
 	// attatch to draggable items in the MoveTray
 	public static GameObject itemBeingDragged;
-	Vector3 startPosition;		// The starting position
-	Transform startParent;		// The starting parent
 	Transform FunctionHUD;		// the function HUD Canvas Transform
 	bool isChildOfMoveTray;		// is the originally the child of MoveTray
 
 	void CleanFunctionHUD () {
 		// Remove all first generation children from FunctionHUD
-		// that are not MoveTray, MainProgram, Function 0, Function 1
+		// that are not MoveTray, MainProgram, Function 0, Function 1, PlayPauseButton
 		int i = 0;
 		while (i < FunctionHUD.childCount) {
 			GameObject child = FunctionHUD.GetChild(i).gameObject;
 			string childName = child.name;
-			if (childName != "MoveTray" && childName != "MainProgram" && childName != "Function 0" && childName != "Function 1") {
+			if (childName != "MoveTray" && childName != "MainProgram" && childName != "Function 0" && childName != "Function 1" && childName != "PlayPauseButton") {
 				// delete that child
 				Destroy (child);
 			}
@@ -44,15 +42,11 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			// position in the same place in hierarcy
 			gameObjectCopy.transform.SetParent(transform.parent, true);
 			// Set the start parent
-			startParent = gameObjectCopy.transform.parent;
-		} else {
-			startParent = transform.parent;
 		}
 
 		// make this gameObject a child of FunctionHUD (in order to render UI) and allow deletion if misplaced
 		transform.SetParent(FunctionHUD, true);
 		itemBeingDragged = gameObject;
-		startPosition = transform.position;
 		GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}
 	#endregion
