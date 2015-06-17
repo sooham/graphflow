@@ -18,7 +18,7 @@ public function moveForwardOneUnit() {
 	var curDistTravelled : float = 0f;
 	
 	// play the moving sound
-	AudioSource.PlayClipAtPoint(moveAudio, transform.position);	
+	AudioSource.PlayClipAtPoint(moveAudio, transform.position, 0.2);	
 	while (curDistTravelled < moveDistance)
 	{
 		curDistTravelled += Time.deltaTime * speed;
