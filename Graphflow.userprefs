@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ProgramExecute.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovement.js">
     <Files>
-      <File FileName="Assets/Scripts/ProgramExecute.js" Line="50" Column="35" />
-      <File FileName="Assets/Scripts/PlayerMovement.js" Line="10" Column="37" />
+      <File FileName="Assets/Scripts/PlayerMovement.js" Line="21" Column="63" />
+      <File FileName="Assets/Scripts/ProgramExecute.js" Line="36" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
