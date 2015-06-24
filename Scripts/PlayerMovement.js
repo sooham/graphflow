@@ -1,47 +1,49 @@
 ﻿#pragma strict
+// Attatch to player
 
-var moveDistance : float = 4f;				// a unit of movement for the player
-var speed: float = 2f;						// the speed in Unity units per second for the player
-var moveAudio : AudioClip;					// The audio to play when moving
+// Uses the level graph object as a tree - where child nodes are the next nodes like a linked list
+// and all other children are objects on that tile
+// allows for easy and graph resitracted navigation
+// make sure the player is always a child of a specific node in the LevelGraph
+// and that the first node is always the starting node
 
-private var moving: boolean = false; 		// is the player currently moving?
-private var playerRigidbody : Rigidbody;
+var movementTime : float;					// The time to conduct a move
+private var playerRotation : String = "F";	// The direction player faces, forward, left or right
 
-public function moveForwardOneUnit() {
-	// moves the player forwad by one unit
-	// check the moving boolean to check if the player is still moving before calling
-	// Use a couroutine that Lerps between the current position and the final position to allow for successive function calls
-	if (moving) return; // ignore other function calls while moving
-	moving = true;
-	var startPos : Vector3 = playerRigidbody.position;
-	var endPos : Vector3 = startPos + transform.forward * moveDistance;
-	var curDistTravelled : float = 0f;
-	
-	// play the moving sound
-	AudioSource.PlayClipAtPoint(moveAudio, transform.position, 0.2);	
-	while (curDistTravelled < moveDistance)
-	{
-		curDistTravelled += Time.deltaTime * speed;
-		playerRigidbody.position = Vector3.Lerp(startPos, endPos, Mathf.Clamp(curDistTravelled / moveDistance, 0, 1));
+function movePlayer() {
+	// Lerps the player to dest from current position
+	var startPos : Vector3 = transform.localPosition;
+	var movingStartTime = Time.time;
+	while ((Time.time - movingStartTime) < movementTime) {
+		transform.localPosition = Vector3.Lerp(startPos, Vector3(0.0f, 0.1f, 0.0f), Mathf.Clamp((Time.time - movingStartTime) / movementTime,0 , 1));
 		yield;
 	}
-	moving = false; // finished moving
 }
 
-
-/***************************** UNITY BUILTIN FUNCTIONS *****************************/
-
-function Start () {
-	playerRigidbody = GetComponent.<Rigidbody>();
-	if (playerRigidbody == null) {
-		Debug.Log("Your player needs a rigidbody attatched!");
+public function moveForwardOneUnit() {
+	// move to the next node in the graph if available
+	// We check if there is a forward node using a proper naming schema in LevelGraph
+	// NodeF - Node in front
+	// NodeL - Node to left
+	// NodeR - Node to right
+	var currentNode : Transform = transform.parent;	
+	Debug.Log(currentNode.name);
+	if (currentNode.childCount > 1) {
+		// Has a child node, check for child nodes of right orientations.
+		for (var i = 0; i < currentNode.childCount; i++) {
+			if (currentNode.GetChild(i).name == "Node" + playerRotation) {
+				// move to current node
+				transform.parent = currentNode.GetChild(i);
+				// Lerp to the next nodes position that is [0,0,0]
+				movePlayer();
+				return;
+			}
+		}
+		
+		Debug.Log("Change orientation of robot");
+		
+	} else { // Leaf Node, do not move
+		Debug.Log("You are on a leaf node");
 	}
+	
 }
-
-//function FixedUpdate() {
-//	// call the moveForwardOneUnit iff the spacebar key is pressed
-//	if (Input.GetKeyDown("space") && !moving) {
-//		moveForwardOneUnit();
-//	}
-//}
-

@@ -12,9 +12,10 @@ GameObject:
   - 23: {fileID: 2300000}
   - 54: {fileID: 5462928}
   - 65: {fileID: 6559532}
+  - 114: {fileID: 11440484}
   m_Layer: 11
   m_Name: PlayerM
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .310000002, y: 1.63, z: -11.6999998}
+  m_LocalPosition: {x: 0, y: .100000001, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -72,11 +73,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_AngularDrag: 0
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!65 &6559532
 BoxCollider:
@@ -88,8 +89,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.13090694, y: .439999998, z: 1.04048276}
-  m_Center: {x: -5.96046448e-08, y: .25, z: -.00218576193}
+  m_Size: {x: 1, y: .419999987, z: 1}
+  m_Center: {x: 0, y: .219999999, z: 0}
+--- !u!114 &11440484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee26e4ddd6b846c0864ddedf7b7a33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementTime: .699999988
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -5,11 +5,11 @@ import UnityEngine.UI;
 // Contains functions related to the programExecturer object
 // which will read through a function tray and execute orders
 
-var waitTime : float = 1f;				// The time between each instruction
-//private var player : GameObject;		// The player
+var waitTime : float = 0.5f;				// The time between each instruction
+private var player : GameObject;			// The player
 
 function Awake() {
-//	player = GameObject.FindWithTag("Player");
+	player = GameObject.FindWithTag("Player");
 }
 
 public function Execute(panel : Transform) {
@@ -40,6 +40,7 @@ function ProgramExecute( functionPanel : Transform)
 			{
     			case "Forward":
     				print("Told to move forward");
+    				player.GetComponent(PlayerMovement).moveForwardOneUnit();
         			break;
         		case "TurnLeft":
         			print("Told to turn left");
@@ -57,11 +58,8 @@ function ProgramExecute( functionPanel : Transform)
         			break;
     		}
     		
-    		
     		yield WaitForSeconds(waitTime);
-    		
 			slot.gameObject.GetComponent(Image).color = new Color(1, 1, 1, 0.75);
-			
 		}
 		i++;	
 	}
