@@ -46,7 +46,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			}
 
 			if (firstMoveAfterEmptySlot && firstEmptySlot) {
-				firstMoveAfterEmptySlot.parent = firstEmptySlot;
+				firstMoveAfterEmptySlot.SetParent(firstEmptySlot, true);
 				break;
 			}
 		}
