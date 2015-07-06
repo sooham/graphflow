@@ -1,52 +1,55 @@
 ﻿#pragma strict
 
 import UnityEngine.UI;
-import UnityEngine.Audio;
 
 // Contains functions related to the programExecturer object
 // which will read through a function tray and execute orders
 
 var waitTime : float = 0.5f;				// The time between each instruction
-var nyanCat : AudioClip;					// The nyan cat audio clip
 private var player : GameObject;			// The player
-private var nyanCatLength : float = 7.2f;
-private var playTime : float = -nyanCatLength;		// Intentionally negative
+private var nyanCat : AudioSource;			// The nyanCat audio to play
+
+//################## UNITY NATIVE FUNCTIONS #########################
 
 function Awake() {
-	player = GameObject.FindWithTag("Player");
-}
-
-public function Execute(panel : Transform) {
-	// This is the function called by the button press
-//	if (Time.time > playTime + nyanCatLength) {
-//	playTime = Time.time;
-//	AudioSource.PlayClipAtPoint(nyanCat, Vector3.zero, 0.3);
-//	}
-	ProgramExecute(panel);
-	// Someway to stop it
-}
-
-function ProgramExecute( functionPanel : Transform) 
-{	// Execute all the steps in the functionPanel Panel, one by one
-	// The function is a coroutine to make life easier
-	var numSlots = functionPanel.childCount;
-	var i : int = 0;
+	// Gets all needed variables before hand to optimise
 	
-	while (i < numSlots)
-	{
-		// Access the function name
-		var slot : Transform = functionPanel.GetChild(i);
+	player = GameObject.FindWithTag("Player");
+	nyanCat = gameObject.GetComponent(AudioSource);
+}
+
+//################## EXECUTION FUNCTIONS #############################
+
+public function ProgramExecute(functionPanel : Transform) {
+	/* To be called by the play button in FunctionHUD
+	 *
+	 * This function takes in a functionPanel and goes through the panels
+	 * slots, identifying each symbol and executing the corresponding function
+	 * as a Coroutine to create artificial step like delays.
+	 *
+	 */
+	 
+	// call an inner anonymous function so that this function can be called via
+	// Unity on Button Press event
+	function () {
+		var numSlots = functionPanel.childCount;
 		
-		
-		if (slot.childCount > 0) {
-			// color the slot object green while executing
-			slot.gameObject.GetComponent(Image).color = new Color(1, 0, 0, 0.75);
+		for (var i = 0; i < numSlots; i++) {
+			// Access the slot Item
+			var slot : Transform = functionPanel.GetChild(i);
+			// color the slot green to show its executing
+			slot.gameObject.GetComponent(Image).color = new Color(0, 1, 0, 0.75);
 			
-			// The slot is non empty
-			var functionName = slot.GetChild(0).name;
-			// call the appropriate function from the PlayerMovement script
-			switch (functionName)
-			{
+			if (slot.childCount > 0) {
+				// Start playing nyanCat if it is not playing when we see full slots
+				if (!nyanCat.isPlaying) {
+					nyanCat.Play();
+				}
+				// the slot is non-empty, get the function 
+				var slotItemName : String = slot.GetChild(0).name;
+				
+				switch (slotItemName) {
+				// call the appropriate function from the PlayerMovement script
     			case "Forward":
     				print("Told to move forward");
     				player.GetComponent(PlayerMovement).moveOneUnit();
@@ -67,11 +70,14 @@ function ProgramExecute( functionPanel : Transform)
         			break;
     			default:
         			break;
-    		}
-    		
-    		yield WaitForSeconds(waitTime);
+				}
+    			yield WaitForSeconds(waitTime);
+			} else {
+				// terminate nyan cat upon the all occurrences of empty slots
+				nyanCat.Stop();
+			}
+    		// remove the color
 			slot.gameObject.GetComponent(Image).color = new Color(1, 1, 1, 0.75);
 		}
-		i++;	
-	}
+	}();
 }

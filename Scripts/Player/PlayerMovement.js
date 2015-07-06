@@ -22,6 +22,9 @@ var blockedSound : AudioClip;
  
 private var playerFacing : String = "N";	// The direction the player is facing acording to compass "NSEW"
 
+
+//#################### MOVEMENT FUNCTIONS #########################
+
 function movePlayer() {
 	/* To be used after the player has changed parent in the LevelGraph
 	 * 
@@ -31,6 +34,7 @@ function movePlayer() {
 	var startPos : Vector3 = transform.localPosition;	// get localPosition
 	var movingStartTime : float = Time.time;
 	var timeDiff : float = 0f;
+	
 	while (timeDiff < movementTime) {
 		timeDiff = Time.time - movingStartTime;
 		transform.localPosition = Vector3.Lerp(startPos, Vector3.zero, timeDiff / movementTime);
