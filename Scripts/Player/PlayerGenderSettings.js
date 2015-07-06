@@ -1,12 +1,14 @@
 ﻿#pragma strict
+import UnityEngine.Audio;
 // Attatch this script to a PlayerGenderSettings Object in Hierarchy
 
+var toggleAudio : AudioClip;
 public static var gender : String = "F";  // default settings is female
+
 
 function Awake() {
 	/* Makes sure the gameOBject is not destroyed between scene transitions.
 	 */
-	 
 	 DontDestroyOnLoad(gameObject);
 }
 
@@ -20,6 +22,7 @@ public function toggleGender(genderCode : String) {
 	 *
 	 * Acceptable values for genderCode paramter are "M" or "F"
 	 */
+	 AudioSource.PlayClipAtPoint(toggleAudio, Vector3.zero, 0.2);
 	 gender = genderCode;
 }
 

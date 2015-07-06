@@ -18,10 +18,10 @@ function Awake() {
 
 public function Execute(panel : Transform) {
 	// This is the function called by the button press
-	if (Time.time > playTime + nyanCatLength) {
-	playTime = Time.time;
-	AudioSource.PlayClipAtPoint(nyanCat, Vector3.zero, 0.3);
-	}
+//	if (Time.time > playTime + nyanCatLength) {
+//	playTime = Time.time;
+//	AudioSource.PlayClipAtPoint(nyanCat, Vector3.zero, 0.3);
+//	}
 	ProgramExecute(panel);
 	// Someway to stop it
 }

@@ -1,21 +1,36 @@
 ﻿#pragma strict
-// Attatch to player
+/* Attatch to player gameObject
+ *
+ * This script allows the player to traverse the LevelGraph object as though it is traversing
+ * a linked list. A level graph object is a Node containing a) nothing b) another node
+ *
+ * traversal forwards happens by chaning the parent of the player object to the destination node
+ * and lerping the player's local position to zero.
+ *
+ * The player must always be a child of a node object in the LevelGraph object
+ */
 
-// Uses the level graph object as a tree - where child nodes are the next nodes like a linked list
-// and all other children are objects on that tile
-// allows for easy and graph resitricted navigation
-// make sure the player is always a child of a specific node in the LevelGraph
-// and that the root node is always the starting node
 
-var movementTime : float;					// The time to conduct a move
-private var playerRotation : String = "F";	// The direction player faces, Forward, Left or Right or Back
+var movementTime : float = 0.5f;			// The time to conduct a move
+
+/* Compass directions
+ * North is the direction towards the robot arm and the gantry
+ */ 
+ 
+private var playerRotation : String = "F";	// The direction the player is facing acording to compass "NSEW"
 
 function movePlayer() {
-	// Lerps the player to dest (0,0,0) from current position
-	var startPos : Vector3 = transform.localPosition;
-	var movingStartTime = Time.time;
-	while ((Time.time - movingStartTime) < movementTime) {
-		transform.localPosition = Vector3.Lerp(startPos, Vector3.zero, Mathf.Clamp((Time.time - movingStartTime) / movementTime,0 , 1));
+	/* To be used after the player has changed parent in the LevelGraph
+	 * 
+	 * Lerps the player over movement time from current position to (0, 0, 0) relative to new position.
+	 */
+
+	var startPos : Vector3 = transform.localPosition;	// get localPosition
+	var movingStartTime : float = Time.time;
+	var timeDiff : float = 0f;
+	while (timeDiff < movementTime) {
+		timeDiff = Time.time - movingStartTime;
+		transform.localPosition = Vector3.Lerp(startPos, Vector3.zero, timeDiff / movementTime);
 		yield;
 	}
 }

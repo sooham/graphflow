@@ -1,17 +1,19 @@
 ﻿#pragma strict
 
-var cameras : GameObject[];
-private var current : int = 0;
+//	Attatch this Script to the GameCameras object, which will hold only game related cams
 
 public function CycleCam() {
-	// Cycles through camera in cameras[] with button press
-	current = current == cameras.length - 1 ? 0: ++current;
-	SelectCamera(current);
-}
-
-function SelectCamera(index : int) {
-	for (var i = 0; i < cameras.length; i++) {
-		// Activate the camera with index
-		cameras[i].SetActive(i == index);
-	}
+	/* To be called by the switch camera button in FunctionHUD
+	 *
+	 * Cycles through the child cameras of GameCameras and sets the next one active
+	 */
+	 for (var camNum = 0; camNum < transform.childCount; camNum++) {
+	 	// Get the background camera and disable it (the child of the child), as it allows movement
+	 	var cam : GameObject = transform.GetChild(camNum).GetChild(0).gameObject;
+	 	if (cam.activeSelf) {
+	 		cam.SetActive(false);
+	 		transform.GetChild(camNum == transform.childCount - 1 ? 0 : ++camNum).GetChild(0).gameObject.SetActive(true);
+	 		break;
+	 	}
+	 }
 }

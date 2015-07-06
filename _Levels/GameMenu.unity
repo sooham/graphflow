@@ -1759,6 +1759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56fc4452338848aab6e1698e3622b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toggleAudio: {fileID: 8300000, guid: dcf04f69a32bb4fa7a87e435f72037cd, type: 3}
 --- !u!1 &887313816
 GameObject:
   m_ObjectHideFlags: 0
