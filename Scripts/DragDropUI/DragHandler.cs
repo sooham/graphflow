@@ -24,9 +24,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				// delete that child
 				Destroy (child);
 			}
-			i++;
+			i++;}
 		}
-	}
+
 
 	void Switch (Transform slotObject) {
 		// Moves the closest gameObject to the closest empty slot

@@ -10,7 +10,7 @@ var waitTime : float = 0.5f;				// The time between each instruction
 var nyanCat : AudioClip;					// The nyan cat audio clip
 private var player : GameObject;			// The player
 private var nyanCatLength : float = 7.2f;
-private var playTime : float = -nyanCatLength;
+private var playTime : float = -nyanCatLength;		// Intentionally negative
 
 function Awake() {
 	player = GameObject.FindWithTag("Player");
