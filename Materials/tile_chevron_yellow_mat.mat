@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -11,6 +11,7 @@ Material:
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -19,14 +20,14 @@ Material:
           name: _MainTex
         second:
           m_Texture: {fileID: 2800000, guid: 7993692de37df70448aa6d78bc854530, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: .75, y: .75}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
           m_Texture: {fileID: 2800000, guid: 710161cf57261974893b0b3428b2a37f, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: .75, y: .75}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
