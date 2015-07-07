@@ -20,7 +20,7 @@ var blockedSound : AudioClip;
  * North is the direction towards the robot arm and the gantry
  */ 
  
-private var playerFacing : String = "N";	// The direction the player is facing acording to compass "NSEW"
+public var playerFacing : String = "N";	// The direction the player is facing acording to compass "NSEW"
 
 
 //#################### MOVEMENT FUNCTIONS #########################

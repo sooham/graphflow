@@ -6,6 +6,7 @@ import UnityEngine.UI;
 // which will read through a function tray and execute orders
 
 var waitTime : float = 0.5f;				// The time between each instruction
+
 private var player : GameObject;			// The player
 private var nyanCat : AudioSource;			// The nyanCat audio to play
 
@@ -80,4 +81,38 @@ public function ProgramExecute(functionPanel : Transform) {
 			slot.gameObject.GetComponent(Image).color = new Color(1, 1, 1, 0.75);
 		}
 	}();
+}
+
+
+//################## RESET FUNCTIONS #############################
+
+public function resetProgramState(levelGraphPrefab : GameObject) {
+	/* To be called by the stop button (which only shows during and after play button is pressed)
+	 *
+	 * Resets the stage to it's initial settings. The coroutine programExecute is stopped by the button press.
+	 * This is done by hiding the object GraphLevel in heirarchy and replacing its prefab levelGraphPrefab.
+	 *
+	 * The graphflow prefab MUST NOT contain any players.
+	 * The function will check the reset the state of the current player in heirarchy
+	 * place him in the correct position in the GraphLevel.
+	 */
+	 
+	 // there is an issue, we cannot delete the previous graph object as it is made using prototype
+	 // I found out that prototype objects mess up the system when deleted
+	 
+	 // get the old prefab
+	 var oldLevel : GameObject = GameObject.Find("LevelGraph");
+	 // Instantiate the prefab
+	 var newLvlGraph = Instantiate(levelGraphPrefab, oldLevel.transform.position, oldLevel.transform.rotation) as GameObject;
+	 // Child the player into the new levelGraph
+	 player.transform.SetParent(newLvlGraph.transform.GetChild(0));
+	 // Reset the player's state i.e facing direction and transform
+	 player.GetComponent(PlayerMovement).playerFacing = "N";
+	 player.transform.localPosition = Vector3.zero;
+	 player.transform.localRotation = Quaternion.identity;
+	 oldLevel.SetActive(false);
+	 // rename the new level
+	 newLvlGraph.name = "LevelGraph";
+	 
+	 // deactivation of calling button, activation of play button is done in button interface, so is stopping all coroutines
 }

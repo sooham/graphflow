@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
+/* This is the draggin and dropping interaface for functions
+ * in GraphFlow
+ */
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 	// Implement the 3 interfaces for begin, during and end of dragging
 	// These three functions will be called on the gameobject if this script is attatched
@@ -10,26 +14,37 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public static GameObject itemBeingDragged;		// The item being dragged
 	public Transform FunctionHUD;					// the function HUD Canvas Transform
 	public Transform MoveTray;						// the MoveTray transform
-	bool isChildOfMoveTray;							// is the item being dragged a child of MoveTray
+	bool isChildOfMoveTray;							// is the item being dragged, a child of MoveTray
 
 	void CleanFunctionHUD () {
-		// Remove all first generation children from FunctionHUD
-		// that are not MoveTray, MainProgram, Function 0, Function 1, PlayPauseButton
-		// This will allow for deletion of invalidly placed items
-		int i = 0;
-		while (i < FunctionHUD.childCount) {
+		/* Helper function
+		 * Remove all extraneous first generation children object
+		 * from FunctionHUD coming from failed drag and drop operations
+		 * Allows for deletion of invalidly placed items
+		 */
+		List<string> keepComponents = new List<string>();
+
+		keepComponents.Add("MoveTray"); 
+		keepComponents.Add("MainProgram"); 
+		keepComponents.Add("CamChangeBtn");
+		keepComponents.Add("PlayBtn"); 
+		keepComponents.Add("ResetBtn");
+
+		for(int i = 0; i < FunctionHUD.childCount; i++) {
 			GameObject child = FunctionHUD.GetChild(i).gameObject;
 			string childName = child.name;
-			if (childName != "MoveTray" && childName != "MainProgram" && childName != "CamChangeBtn" && childName != "Function 1" && childName != "PlayBtn") {
+			if (!keepComponents.Contains(childName)) {
 				// delete that child
 				Destroy (child);
 			}
-			i++;}
 		}
+	}
 
 
 	void Switch (Transform slotObject) {
-		// Moves the closest gameObject to the closest empty slot
+		/* Helper function
+		 * Moves the closest item in a slot to the closest empty slot
+         */
 		Transform firstEmptySlot = null;
 		Transform firstMoveAfterEmptySlot = null;
 		int emptySlotPos = slotObject.childCount;
