@@ -76,7 +76,7 @@ function Update() {
 			// play the appropriate voice
 			
 			if (stage < 8) {
-				if (PlayerGenderSettings.gender == "F") {
+				if (PlayerGenderSettings.gender != "F") {
 					audioComponent.clip = femaleVoice[stage];
 				} else {
 					audioComponent.clip = maleVoice[stage];

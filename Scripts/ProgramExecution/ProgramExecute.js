@@ -81,6 +81,7 @@ public function ProgramExecute(functionPanel : Transform) {
 				// terminate nyan cat upon the all occurrences of empty slots
 				nyanCat.Stop();
 			}
+	 		
     		yield WaitForSeconds(waitTime);
     		// remove the color
 			slot.gameObject.GetComponent(Image).color = new Color(1, 1, 1, 0.75);
