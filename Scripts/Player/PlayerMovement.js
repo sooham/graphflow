@@ -14,7 +14,9 @@ import UnityEngine.Audio;
 
 
 var movementTime : float = 0.5f;			// The time to conduct a move
-var blockedSound : AudioClip;
+var blockedSound : AudioClip;				// The sound to play when blocked
+var pickupSound : AudioClip;				// The sound to play when picking up trash
+var errorSound : AudioClip;					// The sound to play when there are no objects to pickup
 
 /* Compass directions
  * North is the direction towards the robot arm and the gantry
@@ -40,17 +42,6 @@ function movePlayer() {
 		transform.localPosition = Vector3.Lerp(startPos, Vector3.zero, timeDiff / movementTime);
 		yield;
 	}
-}
-
-function getChildWithName(objName: String, object : Transform) : Transform {
-	/* Helper function
-	 * returns first Transform with name objName that is child of object. Otherwise return null
-	 */
-	 for (var i = 0; i < object.childCount; i++) {
-	 	if (object.GetChild(i).name == objName)
-	 		return object.GetChild(i);
-	 }
-	 return null;
 }
 
 public function moveOneUnit() {
@@ -81,10 +72,10 @@ public function moveOneUnit() {
 			if (currentNode.name == "NodeW") {
 				blocked = false;
 				transform.SetParent(currentNode.parent, true);
-			} else if (getChildWithName("NodeE", currentNode)) {
+			} else if (currentNode.Find("NodeE")) {
 				// move to that 
 				blocked = false;
-				transform.SetParent(getChildWithName("NodeE", currentNode), true);
+				transform.SetParent(currentNode.Find("NodeE"), true);
 			}
 			break;
 		case "W":
@@ -92,16 +83,16 @@ public function moveOneUnit() {
 			if (currentNode.name == "NodeE") {
 				blocked = false;
 				transform.SetParent(currentNode.parent, true);
-			} else if (getChildWithName("NodeW", currentNode)) {
+			} else if (currentNode.Find("NodeW")) {
 				// move to that 
 				blocked = false;
-				transform.SetParent(getChildWithName("NodeW", currentNode), true);
+				transform.SetParent(currentNode.Find("NodeW"), true);
 			}
 			break;
 		default: // N
-			if (getChildWithName("NodeN", currentNode)) {
+			if (currentNode.Find("NodeN")) {
 				blocked = false;
-				transform.SetParent(getChildWithName("NodeN", currentNode), true);
+				transform.SetParent(currentNode.Find("NodeN"), true);
 			}
 			break;
 	}
@@ -146,4 +137,43 @@ public function TurnRight() {
 	 */
 	playerFacing = (playerFacing == "N") ? "E": (playerFacing == "E" ? "S" : (playerFacing == "S" ? "W" : "N"));
 	Turn(90.0f);
+}
+
+public function inspectNode() {
+	/* Makes the player inspect the current node
+	 * This function is called by program executer when it sees the inspect sign
+	 *
+	 * all items to be deleted from the node must be tagged "Trash"
+	 * all stars must be Tagged "Star"
+	 */
+	 
+	 // get the parent Node
+	 var playErrorSound : boolean = true;
+	 var currentNode : Transform = transform.parent;
+	 // go through the childern of the node player is currently on, looking for object like stars and trash
+	 for (var child : Transform in currentNode) {
+	 	switch (child.tag) {
+	 		case "Trash":
+	 			// delete the item
+	 			playErrorSound = false;
+	 			AudioSource.PlayClipAtPoint(pickupSound, transform.position, 0.5f);
+	 			Destroy(child.gameObject);
+	 			break;
+	 		case "Star":
+	 			// Level finished
+	 			// play star animation, which is enabled by SetActive the child's sub gameobject
+	 			// sound plays automatically
+	 			child.GetChild(1).gameObject.SetActive(true);
+	 			Destroy(child.GetChild(0).gameObject);
+	 			break;
+	 		default:
+	 			break;
+	 	}
+	 }
+	 
+	 if (playErrorSound) {
+	 	AudioSource.PlayClipAtPoint(errorSound, transform.position, 0.5f);
+	 }
+	 
+
 }

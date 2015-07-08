@@ -2,13 +2,17 @@
 
 import UnityEngine.UI;
 
-// Contains functions related to the programExecturer object
-// which will read through a function tray and execute orders
+/* Attatch to programExecuter object
+ * Contains functions related to the programExecuter object
+ * which will read through a function tray and execute orders
+ * either iteratively or (hopefully one day) recursively
+ */
 
 var waitTime : float = 0.5f;				// The time between each instruction
 
 private var player : GameObject;			// The player
 private var nyanCat : AudioSource;			// The nyanCat audio to play
+private var PlayerMove : PlayerMovement;
 
 //################## UNITY NATIVE FUNCTIONS #########################
 
@@ -17,6 +21,7 @@ function Awake() {
 	
 	player = GameObject.FindWithTag("Player");
 	nyanCat = gameObject.GetComponent(AudioSource);
+	PlayerMove = player.GetComponent(PlayerMovement);
 }
 
 //################## EXECUTION FUNCTIONS #############################
@@ -33,11 +38,8 @@ public function ProgramExecute(functionPanel : Transform) {
 	// call an inner anonymous function so that this function can be called via
 	// Unity on Button Press event
 	function () {
-		var numSlots = functionPanel.childCount;
 		
-		for (var i = 0; i < numSlots; i++) {
-			// Access the slot Item
-			var slot : Transform = functionPanel.GetChild(i);
+		for (var slot : Transform in functionPanel) {
 			// color the slot green to show its executing
 			slot.gameObject.GetComponent(Image).color = new Color(0, 1, 0, 0.75);
 			
@@ -53,18 +55,19 @@ public function ProgramExecute(functionPanel : Transform) {
 				// call the appropriate function from the PlayerMovement script
     			case "Forward":
     				print("Told to move forward");
-    				player.GetComponent(PlayerMovement).moveOneUnit();
+    				PlayerMove.moveOneUnit();
         			break;
         		case "TurnLeft":
         			print("Told to turn left");
-    				player.GetComponent(PlayerMovement).TurnLeft();
+    				PlayerMove.TurnLeft();
         			break;
         		case "TurnRight":
         			print("Told to turn right");
-    				player.GetComponent(PlayerMovement).TurnRight();
+    				PlayerMove.TurnRight();
         			break;
         		case "Inspect":
         			print("Told to inspect");
+        			PlayerMove.inspectNode();
         			break;
         		case "Recurse":
         			print("Told to turn recurse");
@@ -72,11 +75,11 @@ public function ProgramExecute(functionPanel : Transform) {
     			default:
         			break;
 				}
-    			yield WaitForSeconds(waitTime);
 			} else {
 				// terminate nyan cat upon the all occurrences of empty slots
 				nyanCat.Stop();
 			}
+    		yield WaitForSeconds(waitTime);
     		// remove the color
 			slot.gameObject.GetComponent(Image).color = new Color(1, 1, 1, 0.75);
 		}

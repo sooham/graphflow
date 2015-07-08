@@ -3,15 +3,25 @@
 import UnityEngine.Audio;
 // Attatch this script to GameMenu object, which is the root of the Main Menu UI 
 
-var mask : GameObject;
-var backButton : GameObject;
-var homeMenu : GameObject;
-var playMenu : GameObject;
-var settingsMenu : GameObject;
-var aboutMenu : GameObject;
-var loadingScreen : GameObject;
+private var mask : GameObject;
+private var backButton : GameObject;
+private var homeMenu : GameObject;
+private var playMenu : GameObject;
+private var settingsMenu : GameObject;
+private var aboutMenu : GameObject;
+private var loadingScreen : GameObject;
 
 var loadingSound : AudioClip;
+
+function Awake() {
+	mask = transform.Find("Mask").gameObject;
+	backButton = transform.Find("BackButton").gameObject;
+	homeMenu = transform.Find("HomeMenu").gameObject;
+	playMenu = transform.Find("PlayMenu").gameObject;
+	settingsMenu = transform.Find("SettingsMenu").gameObject;
+	aboutMenu = transform.Find("AboutMenu").gameObject;
+	loadingScreen = transform.Find("LoadingScreen").gameObject;
+}
 
 
 //################## RETURN TO HOME MENU ######################
@@ -22,15 +32,10 @@ public function activateHomeMenu() {
 	 *
 	 * Initial State: HomeMenu active and Mask active
 	 */
-	 
-	for (var i : int = 0; i < transform.childCount; i++) {
-		var menuComponent : GameObject = transform.GetChild(i).gameObject;
-		if (menuComponent.name in ["HomeMenu", "Mask"]) {
-			menuComponent.SetActive(true);
-		} else {
-			menuComponent.SetActive(false);
-		}
-	}
+
+	 for (var childComponent: Transform in transform) {
+	 	childComponent.gameObject.SetActive(childComponent.name in ["HomeMenu", "Mask"]);
+	 }
 }
 
 //################## HOME MENU BUTTON NAVIGATION ######################

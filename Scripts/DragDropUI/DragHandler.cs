@@ -3,18 +3,18 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-/* This is the draggin and dropping interaface for functions
- * in GraphFlow
+/* This file is one used to implement the dragging interface
+ * from the item being dragged side, as such, it should be attatched to all draggable
+ * items in MoveTray (or somewhere else). Make sure they have a canvas group.
+ *
+ * The functions inlude, OnDrag, OnPointerMovement, OnDrop
  */
+
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
-	// Implement the 3 interfaces for begin, during and end of dragging
-	// These three functions will be called on the gameobject if this script is attatched
-	// Attach this to all movable items in MoveTray, make sure they have a canvas group.
 
 	public static GameObject itemBeingDragged;		// The item being dragged
 	public Transform FunctionHUD;					// the function HUD Canvas Transform
 	public Transform MoveTray;						// the MoveTray transform
-	bool isChildOfMoveTray;							// is the item being dragged, a child of MoveTray
 
 	void CleanFunctionHUD () {
 		/* Helper function
@@ -30,12 +30,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		keepComponents.Add("PlayBtn"); 
 		keepComponents.Add("ResetBtn");
 
-		for(int i = 0; i < FunctionHUD.childCount; i++) {
-			GameObject child = FunctionHUD.GetChild(i).gameObject;
-			string childName = child.name;
-			if (!keepComponents.Contains(childName)) {
-				// delete that child
-				Destroy (child);
+		foreach (Transform child in FunctionHUD) {
+			if (!keepComponents.Contains (child.name)) {
+				Destroy (child.gameObject);
 			}
 		}
 	}
@@ -43,37 +40,39 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	void Switch (Transform slotObject) {
 		/* Helper function
-		 * Moves the closest item in a slot to the closest empty slot
+		 * Moves the closest move object in MainProgram into the first empty slot
+		 * for slotObject
          */
 		Transform firstEmptySlot = null;
 		Transform firstMoveAfterEmptySlot = null;
-		int emptySlotPos = slotObject.childCount;
-		for (int i = 0; i < slotObject.childCount; i++) {
-			// for every child in the slotObject ascending
-			if (slotObject.GetChild(i).childCount == 0 && !firstEmptySlot) {
-				firstEmptySlot = slotObject.GetChild(i);
-				emptySlotPos = i;
+
+		foreach (Transform slot in slotObject) {
+			if (firstEmptySlot && slot.childCount > 0) {
+				// found first non-empty slot after the empty slot
+				firstMoveAfterEmptySlot = slot.GetChild(0);
+			}
+			if (slot.childCount == 0 && !firstEmptySlot) {
+				// found first empty slot in slotObject
+				firstEmptySlot = slot;
 			}
 
-			if (i > emptySlotPos && slotObject.GetChild(i).childCount > 0) {
-				// found non-empty slot
-				firstMoveAfterEmptySlot = slotObject.GetChild(i).GetChild(0);
-			}
-
-			if (firstMoveAfterEmptySlot && firstEmptySlot) {
+			if (firstEmptySlot && firstMoveAfterEmptySlot) {
+				// set the move into the empty slot
 				firstMoveAfterEmptySlot.SetParent(firstEmptySlot, true);
 				break;
 			}
+
 		}
+
 	}
 
 	#region IBeginDragHandler implementation
 	public void OnBeginDrag (PointerEventData eventData)
-	{	// Called whenever a drag event is started on gameObject
-
-		// for items that are children of MoveTray we want to create a duplicate in same position as gameObject
-		// allowing for infinite supply of moves
-		isChildOfMoveTray = transform.IsChildOf(MoveTray);
+	{	/* Called whenever a drag event is started on gameObject
+		 * for items that are children of MoveTray we want to create a duplicate in same position as gameObject
+		 * allowing for infinite supply of moves
+		 */
+		bool isChildOfMoveTray = transform.IsChildOf(MoveTray);
 
 		if (isChildOfMoveTray) {
 			// create a copy
@@ -94,11 +93,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		// and reorganise its slots
 		if (!isChildOfMoveTray) {
 			// reorganise orignalParent
-			for (int slotnum = 0; slotnum < originalParent.parent.childCount; slotnum++) {
+			foreach (Transform _ in originalParent.parent) {
 				Switch(originalParent.parent);
 			}
 		}
-
 		itemBeingDragged = gameObject;
 		GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}

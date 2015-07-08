@@ -2078,13 +2078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82fc27b83cc7848ecadb26343a9700e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mask: {fileID: 209458998}
-  backButton: {fileID: 1361586367}
-  homeMenu: {fileID: 1557014671}
-  playMenu: {fileID: 975049095}
-  settingsMenu: {fileID: 1984048879}
-  aboutMenu: {fileID: 683519918}
-  loadingScreen: {fileID: 1332178640}
   loadingSound: {fileID: 8300000, guid: 85ddeba3e122645beb36989eede9136d, type: 3}
 --- !u!1 &1034168666
 GameObject:

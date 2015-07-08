@@ -3,8 +3,11 @@ using System.Collections;
 using UnityEngine.EventSystems;
 
 public class SlotDragHandler : MonoBehaviour, IDropHandler {
-	// attach this script to all non-movetray slots
-	// here gameObject refers to the slot
+	/* Attach this script to all non-movetray slots
+	 * here gameObject refers to the slot
+	 * 
+	 * To be attatched to all dragee's
+	 */
 
 	// make a property to get this slot's contents easily
 	// return null if slot empty else the child GameObject
@@ -32,7 +35,7 @@ public class SlotDragHandler : MonoBehaviour, IDropHandler {
 			// we want to place the item being dropped in the first empty slot
 			// get the first empty slot from the parent container
 			Transform parentObject = transform.parent;
-			for (int i = parentObject.childCount - 1; i >= 0; i--) {
+			for(int i = parentObject.childCount - 1; i >= 0; i--) {
 				Transform curChild = parentObject.GetChild(i);
 				if (curChild.childCount == 0) {
 					// then the slot child is empty
