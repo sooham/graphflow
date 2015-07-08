@@ -13,20 +13,22 @@ var waitTime : float = 0.5f;				// The time between each instruction
 private var player : GameObject;			// The player
 private var nyanCat : AudioSource;			// The nyanCat audio to play
 private var PlayerMove : PlayerMovement;
-
+private var gotPlayerInfo : boolean = false;		// did we get the player info (DO NOT REMOVE!!!)
 //################## UNITY NATIVE FUNCTIONS #########################
 
 function Awake() {
 	// Gets all needed variables before hand to optimise
-	
-	player = GameObject.FindWithTag("Player");
 	nyanCat = gameObject.GetComponent(AudioSource);
-	PlayerMove = player.GetComponent(PlayerMovement);
 }
 
 //################## EXECUTION FUNCTIONS #############################
 
 public function ProgramExecute(functionPanel : Transform) {
+	if (!gotPlayerInfo) {
+		player = GameObject.FindWithTag("Player");
+		PlayerMove = player.GetComponent(PlayerMovement);
+		gotPlayerInfo = true;
+	}
 	/* To be called by the play button in FunctionHUD
 	 *
 	 * This function takes in a functionPanel and goes through the panels
