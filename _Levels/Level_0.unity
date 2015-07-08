@@ -2123,7 +2123,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5f86e86284f954a90b33d770b78af179, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .0500000007
+  m_Volume: .0299999993
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4924,6 +4924,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2109720480}
   - 114: {fileID: 2109720481}
+  - 82: {fileID: 2109720482}
   m_Layer: 0
   m_Name: CutsceneManager
   m_TagString: Untagged
@@ -4967,17 +4968,104 @@ MonoBehaviour:
   functionHUD: {fileID: 590589053}
   gameCameras: {fileID: 102184329}
   dialogue:
-  - Hey, how are you? Welcome to the lab.
+  - how are you? Welcome to the lab.
   - I'm your cousin and tutor, I have been keeping this lab clean for two years now.
     I think it is your turn to help me out!
   - A roomba like you out of the factory must train somehow. haha.
   - Don't worry, I will show you how to do it first, it ain't no big deal.
   - Okay let's teach you how to move first.
-  - Drag the forward arrow to the first slot below and press play. Press space
+  - Drag the forward arrow to the first slot below and press play. Then press space
   - Good job! That's how you move. Now press the stop button. Then press space
   - Chain moves in a sequence to do them one by one - maybe try and get to the star
-    first? I will leave you to it! Bye!
+    first? I will leave you to it! Bye Bye!
   - Left Intentionally Empty
+  maleVoice:
+  - {fileID: 8300000, guid: 02f9d0881d7be4a13bd574d031455809, type: 3}
+  - {fileID: 8300000, guid: aa1661eac9d9e4bcf9100b4525d65fea, type: 3}
+  - {fileID: 8300000, guid: a6bff34955ae841c987676daeb2ec5c5, type: 3}
+  - {fileID: 8300000, guid: 335a6b86b49e34dd097dea4beeb6cd9d, type: 3}
+  - {fileID: 8300000, guid: 95a83edcfe4364ae48f5238444878e50, type: 3}
+  - {fileID: 8300000, guid: 3b50f77ef5e4445898788d5472d46df4, type: 3}
+  - {fileID: 8300000, guid: f389026260ff94ccaba248995ec1762e, type: 3}
+  - {fileID: 8300000, guid: 99f8544f262604a43a085c92b91213ed, type: 3}
+  femaleVoice:
+  - {fileID: 8300000, guid: 7561575d592f146f88045356fbc63016, type: 3}
+  - {fileID: 8300000, guid: b0708de4518294a699ef48efe1ba5cd7, type: 3}
+  - {fileID: 8300000, guid: bc8e3320ae45e40948250e1f88b080ab, type: 3}
+  - {fileID: 8300000, guid: 536139cc11cec49c189de60633c7f5a3, type: 3}
+  - {fileID: 8300000, guid: 31b0b0b1539754bcd961f0f91832044b, type: 3}
+  - {fileID: 8300000, guid: 73008cd17bfca49339f4961288eee044, type: 3}
+  - {fileID: 8300000, guid: d599ec752092f43dc8dd8436bbe5ccc9, type: 3}
+  - {fileID: 8300000, guid: 9d16ba712a7ad4f3eab4968e394bcc09, type: 3}
+--- !u!82 &2109720482
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109720479}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!4 &2111680629 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429204, guid: 3e570ddd342ba472aabcde4925dea197, type: 2}

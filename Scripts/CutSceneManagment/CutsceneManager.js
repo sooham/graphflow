@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 import UnityEngine.UI;
+import UnityEngine.Audio;
 /* This script holds many cutscene related funcitons
  * In order for this script to work it should be attatched to CutsceneManager
  */
@@ -15,9 +16,16 @@ import UnityEngine.UI;
  var gameCameras : GameObject;
  var dialogue : String[];
  
+ var maleVoice : AudioClip[];
+ var femaleVoice: AudioClip[];
+ 
  private var stage : int = 0;
  private var introCutsceneFinished : boolean = false;
+ private var audioComponent : AudioSource;
 //################## UNITY NATIVE FUNCTIONS ###############################
+function Awake() {
+	audioComponent = GetComponent.<AudioSource>();
+}
 
 function Update() {
 	if (stage < dialogue.length) {
@@ -63,6 +71,17 @@ function Update() {
 				default:
 					break;
 		
+			}
+			
+			// play the appropriate voice
+			
+			if (stage < 8) {
+				if (PlayerGenderSettings.gender == "F") {
+					audioComponent.clip = femaleVoice[stage];
+				} else {
+					audioComponent.clip = maleVoice[stage];
+				}
+				audioComponent.Play();
 			}
 			changeText(dialogue[stage], textField);
 			stage++;
