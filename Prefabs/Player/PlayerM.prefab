@@ -45,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.60000002, z: -12}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 490320}
@@ -249,8 +249,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementTime: .5
   blockedSound: {fileID: 8300000, guid: 9753b810e78ce4a7fa5116e20830f9ae, type: 3}
-  pickupSound: {fileID: 0}
-  errorSound: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 79ca3d1840a5144e8aa9c05ade901a28, type: 3}
+  errorSound: {fileID: 8300000, guid: dcf04f69a32bb4fa7a87e435f72037cd, type: 3}
   playerFacing: N
 --- !u!114 &11460996
 MonoBehaviour:

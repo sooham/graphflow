@@ -29,6 +29,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		keepComponents.Add("CamChangeBtn");
 		keepComponents.Add("PlayBtn"); 
 		keepComponents.Add("ResetBtn");
+		keepComponents.Add("GameplayPlayerBox");
 
 		foreach (Transform child in FunctionHUD) {
 			if (!keepComponents.Contains (child.name)) {

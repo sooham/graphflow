@@ -14,11 +14,9 @@
 
 function Awake () {
 	/* On awake, check the value of the static variable PlayerGenderSettings.gender 
-	 * and activate or deactivate this GameObject
+	 * and Destroy / Keep this GameObject
 	 */
-	if (!oppositePlayerGender) {
-		gameObject.SetActive("Player" + PlayerGenderSettings.gender == gameObject.name);
-	} else {
-		gameObject.SetActive("Player" + PlayerGenderSettings.gender != gameObject.name);
+	if ((oppositePlayerGender && ("Player" + PlayerGenderSettings.gender == gameObject.name)) || (!oppositePlayerGender && ("Player" + PlayerGenderSettings.gender != gameObject.name))) {
+		Destroy(gameObject);
 	}
 }
