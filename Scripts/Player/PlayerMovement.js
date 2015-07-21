@@ -174,6 +174,4 @@ public function inspectNode() {
 	 if (playErrorSound) {
 	 	AudioSource.PlayClipAtPoint(errorSound, transform.position, 0.5f);
 	 }
-	 
-
 }

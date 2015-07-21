@@ -110,6 +110,7 @@ public function resetProgramState(levelGraphPrefab : GameObject) {
 	 var oldLevel : GameObject = GameObject.Find("LevelGraph");
 	 // Instantiate the prefab
 	 var newLvlGraph = Instantiate(levelGraphPrefab, oldLevel.transform.position, oldLevel.transform.rotation) as GameObject;
+	 newLvlGraph.transform.SetParent(oldLevel.transform.parent);
 	 // Child the player into the new levelGraph
 	 player.transform.SetParent(newLvlGraph.transform.GetChild(0));
 	 // Reset the player's state i.e facing direction and transform
