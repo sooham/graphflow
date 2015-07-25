@@ -26,11 +26,11 @@ public function activateHomeMenu() {
 	 /* goes through and sets GameMenu (gameObject) back to initial state.
 	 * called by pressing the back button.
 	 *
-	 * Initial State: HomeMenu active and Mask active
+	 * Initial State: HomeMenu active , Title active and Mask active
 	 */
-
+	 mask.GetComponent(Animator).SetTrigger('show');
 	 for (var childComponent: Transform in transform) {
-	 	childComponent.gameObject.SetActive(childComponent.name in ["HomeMenu", "Mask"]);
+	 	childComponent.gameObject.SetActive(childComponent.name in ["HomeMenu", "Mask", "Title"]);
 	 }
 }
 
@@ -41,8 +41,7 @@ public function activateSettingsMenu() {
 	 *
 	 * Called by pressing the play button in HomeMenu
 	 */
-	
-	mask.SetActive(false);
+	mask.GetComponent(Animator).SetTrigger('hide');
 	homeMenu.SetActive(false);
 	backButton.SetActive(true);
 	settingsMenu.SetActive(true);
