@@ -7705,6 +7705,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 148964, guid: 7def9786304e34e91aa438067eeb235b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7def9786304e34e91aa438067eeb235b, type: 2}
   m_IsPrefabParent: 0
@@ -9897,6 +9901,10 @@ Prefab:
     - target: {fileID: 417980, guid: eabccf6fc3ee34acc993f118f35b7c92, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 196582, guid: eabccf6fc3ee34acc993f118f35b7c92, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eabccf6fc3ee34acc993f118f35b7c92, type: 2}
@@ -12574,6 +12582,10 @@ Prefab:
     - target: {fileID: 11407982, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: findString
       value: /IntroCutsceneManager/CutsceneObjects/
+      objectReference: {fileID: 0}
+    - target: {fileID: 143834, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
