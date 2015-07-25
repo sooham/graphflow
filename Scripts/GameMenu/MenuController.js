@@ -4,7 +4,6 @@ import UnityEngine.Audio;
 // Attatch this script to GameMenu object, which is the root of the Main Menu UI 
 
 private var mask : GameObject;
-private var backButton : GameObject;
 private var homeMenu : GameObject;
 private var settingsMenu : GameObject;
 private var loadingScreen : GameObject;
@@ -13,7 +12,6 @@ var loadingSound : AudioClip;
 
 function Awake() {
 	mask = transform.Find("Mask").gameObject;
-	backButton = transform.Find("BackButton").gameObject;
 	homeMenu = transform.Find("HomeMenu").gameObject;
 	settingsMenu = transform.Find("SettingsMenu").gameObject;
 	loadingScreen = transform.Find("LoadingScreen").gameObject;
@@ -43,7 +41,6 @@ public function activateSettingsMenu() {
 	 */
 	mask.GetComponent(Animator).SetTrigger('hide');
 	homeMenu.SetActive(false);
-	backButton.SetActive(true);
 	settingsMenu.SetActive(true);
 }
 
