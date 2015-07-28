@@ -10037,6 +10037,10 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1 &1812570274 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 182074, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+  m_PrefabInternal: {fileID: 2096862160}
 --- !u!1 &1817523638
 GameObject:
   m_ObjectHideFlags: 0
@@ -12527,6 +12531,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: dialogue.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: femaleVoice.Array.size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 411788, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12586,6 +12598,94 @@ Prefab:
     - target: {fileID: 143834, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: femaleVoice.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d16ba712a7ad4f3eab4968e394bcc09, type: 3}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: femaleVoice.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a6c2b2d153c54cfb89f0e134dac1955, type: 3}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: femaleVoice.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7561575d592f146f88045356fbc63016, type: 3}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: femaleVoice.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b0708de4518294a699ef48efe1ba5cd7, type: 3}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: femaleVoice.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: bc8e3320ae45e40948250e1f88b080ab, type: 3}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: femaleVoice.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 536139cc11cec49c189de60633c7f5a3, type: 3}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: femaleVoice.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 31b0b0b1539754bcd961f0f91832044b, type: 3}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: femaleVoice.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 73008cd17bfca49339f4961288eee044, type: 3}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: femaleVoice.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: d599ec752092f43dc8dd8436bbe5ccc9, type: 3}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: dialogue.Array.data[8]
+      value: Chain moves in a sequence to do them one by one - maybe try and get to
+        the star first? I will leave you to it! Bye Bye!
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: dialogue.Array.data[7]
+      value: Good job! That's how you move. Now press the stop button. Then press
+        space
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: dialogue.Array.data[6]
+      value: Drag the forward arrow to the first slot below and press play. Then press
+        space
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: dialogue.Array.data[5]
+      value: Okay let's teach you how to move first.
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: dialogue.Array.data[4]
+      value: Don't worry, I will show you how to do it first, it ain't no big deal.
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: dialogue.Array.data[3]
+      value: A roomba like you out of the factory must train somehow. haha.
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: dialogue.Array.data[2]
+      value: I'm your cousin and tutor, I have been keeping this lab clean for two
+        years now. I think it is your turn to help me out!
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: dialogue.Array.data[1]
+      value: How are you? Welcome to the lab.
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: dialogue.Array.data[0]
+      value: Hello. Press space
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: dialogueTextBox
+      value: 
+      objectReference: {fileID: 1812570274}
+    - target: {fileID: 11455242, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401590, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}

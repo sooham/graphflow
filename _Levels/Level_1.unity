@@ -2979,6 +2979,7 @@ MonoBehaviour:
   functionHUD: {fileID: 590589053}
   gameCameras: {fileID: 102184329}
   dialogue:
+  - Hello. Press space
   - Hi. Now I will introduce you to the inspect function
   - It is quite useful.
   - Look at how the lab is littered with trash
@@ -2986,14 +2987,8 @@ MonoBehaviour:
     the magnifying glass
   - Try cleaning up all the tiles in the lab and reaching the star. Bye bye.  Press
     space to dismiss
-  - Intentionally Here
-  maleVoice:
-  - {fileID: 8300000, guid: 3358362d50f1240c9b3ca210f9026815, type: 3}
-  - {fileID: 8300000, guid: ff7b2a84e7a384023bd83f34daf072e7, type: 3}
-  - {fileID: 8300000, guid: 5c481c3a784e44ada9347db75128ff44, type: 3}
-  - {fileID: 8300000, guid: 9b1e242c3a2144341a140d22f52ce027, type: 3}
-  - {fileID: 8300000, guid: d89932df5e91144deba39a52b024dcad, type: 3}
   femaleVoice:
+  - {fileID: 8300000, guid: 22546641ae8ac41e19f04b6e1f8b67ff, type: 3}
   - {fileID: 8300000, guid: df1cd5768b7f04880bf5db65e18a95e3, type: 3}
   - {fileID: 8300000, guid: fa7b312fce3224dada4a5c360a849de2, type: 3}
   - {fileID: 8300000, guid: 028bb36bb83074500a090a0effe33670, type: 3}
