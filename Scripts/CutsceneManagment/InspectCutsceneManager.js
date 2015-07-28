@@ -2,10 +2,10 @@
 
 import UnityEngine.UI;
 import UnityEngine.Audio;
-/* This script holds cutscene to the introduction of the inspect function
- * In order for this script to work it should be attatched to a CutsceneManager
+/* This script holds cut scene to the introduction of the inspect function
+ * In order for this script to work it should be attached to a CutsceneManager
  */
- 
+
  var gamePlayTextField : Transform;
  var dialogueTextField : Transform;
  var closeUpTextField : Transform;
@@ -15,10 +15,9 @@ import UnityEngine.Audio;
  var functionHUD : GameObject;
  var gameCameras : GameObject;
  var dialogue : String[];
- 
- var maleVoice : AudioClip[];
+
  var femaleVoice: AudioClip[];
- 
+
  private var stage : int = 0;
  private var introCutsceneFinished : boolean = false;
  private var audioComponent : AudioSource;
@@ -54,16 +53,12 @@ function Update() {
 					break;
 				default:
 					break;
-		
+
 			}
-			
+
 			// play the appropriate voice
 			if (stage < dialogue.length - 1) {
-				if (PlayerGenderSettings.gender != "F") {
-					audioComponent.clip = femaleVoice[stage];
-				} else {
-					audioComponent.clip = maleVoice[stage];
-				}
+                audioComponent.clip = femaleVoice[stage];
 				audioComponent.Play();
 			}
 			changeText(dialogue[stage], textField);
@@ -72,9 +67,9 @@ function Update() {
 	} else {
 		introCutsceneFinished = true;
 	}
-	
+
 	if (introCutsceneFinished) {
-		// disable all cutscene items
+		// disable all cut scene items
 		gamePlayTextBox.SetActive(false);
 		gameObject.SetActive(false);
 	}
@@ -84,10 +79,10 @@ function Update() {
 //################## TEXT CHANGING ########################################
 
 function changeText(newText : String, textfield : Transform) {
-	/* Goes through the tex object, gets its text component
+	/* Goes through the text object, gets its text component
 	 * and changes it.
 	 */
-	 
+
 	 textfield.GetComponent(UI.Text).text = newText;
 	 // play the corresponding mp3
 }
