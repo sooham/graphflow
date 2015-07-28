@@ -1,12 +1,12 @@
 ﻿#pragma strict
 
 import UnityEngine.Audio;
-/* Attatch to player gameObject
+/* Attach to player gameObject
  *
  * This script allows the player to traverse the LevelGraph object as though it is traversing
  * a linked list. A level graph object is a Node containing a) nothing b) another node
  *
- * traversal forwards happens by chaning the parent of the player object to the destination node
+ * traversal forwards happens by changing the parent of the player object to the destination node
  * and lerping the player's local position to zero.
  *
  * The player must always be a child of a node object in the LevelGraph object
@@ -20,23 +20,23 @@ var errorSound : AudioClip;					// The sound to play when there are no objects t
 
 /* Compass directions
  * North is the direction towards the robot arm and the gantry
- */ 
- 
-public var playerFacing : String = "N";	// The direction the player is facing acording to compass "NSEW"
+ */
+
+public var playerFacing : String = "N";	// The direction the player is facing according to compass "NSEW"
 
 
 //#################### MOVEMENT FUNCTIONS #########################
 
 function movePlayer() {
 	/* To be used after the player has changed parent in the LevelGraph
-	 * 
+	 *
 	 * Lerps the player over movement time from current position to (0, 0, 0) relative to new position.
 	 */
 
 	var startPos : Vector3 = transform.localPosition;	// get localPosition
 	var movingStartTime : float = Time.time;
 	var timeDiff : float = 0f;
-	
+
 	while (timeDiff < movementTime) {
 		timeDiff = Time.time - movingStartTime;
 		transform.localPosition = Vector3.Lerp(startPos, Vector3.zero, timeDiff / movementTime);
@@ -57,15 +57,15 @@ public function moveOneUnit() {
 	 *
 	 * NOTE: THIS WILL NOT WORK WORK WITH GRAPHS, ONLY WITH TREES, make a graph data type for graph
 	 */
-	var currentNode : Transform = transform.parent;	
+	var currentNode : Transform = transform.parent;
 	var blocked : boolean = true;
-	
+
 	switch (playerFacing) {
 		case "S":
 			if (currentNode.name == "NodeN" && currentNode.parent.name == "NodeN") {
 				blocked = false;
 				transform.SetParent(currentNode.parent, true);
-			} 
+			}
 			break;
 		case "E":
 			// here if we are going up or down the linked list / tree is ambiguous
@@ -73,7 +73,7 @@ public function moveOneUnit() {
 				blocked = false;
 				transform.SetParent(currentNode.parent, true);
 			} else if (currentNode.Find("NodeE")) {
-				// move to that 
+				// move to that
 				blocked = false;
 				transform.SetParent(currentNode.Find("NodeE"), true);
 			}
@@ -84,7 +84,7 @@ public function moveOneUnit() {
 				blocked = false;
 				transform.SetParent(currentNode.parent, true);
 			} else if (currentNode.Find("NodeW")) {
-				// move to that 
+				// move to that
 				blocked = false;
 				transform.SetParent(currentNode.Find("NodeW"), true);
 			}
@@ -96,7 +96,7 @@ public function moveOneUnit() {
 			}
 			break;
 	}
-	
+
 	// play blocked sound if there is no way to go
 	if (blocked) {
 		AudioSource.PlayClipAtPoint(blockedSound, Vector3.zero, 1.0f);
@@ -104,7 +104,7 @@ public function moveOneUnit() {
 		// move and update current node
 		movePlayer();
 	}
-	
+
 }
 
 function Turn(angle : float) {
@@ -146,7 +146,7 @@ public function inspectNode() {
 	 * all items to be deleted from the node must be tagged "Trash"
 	 * all stars must be Tagged "Star"
 	 */
-	 
+
 	 // get the parent Node
 	 var playErrorSound : boolean = true;
 	 var currentNode : Transform = transform.parent;
@@ -170,7 +170,7 @@ public function inspectNode() {
 	 			break;
 	 	}
 	 }
-	 
+
 	 if (playErrorSound) {
 	 	AudioSource.PlayClipAtPoint(errorSound, transform.position, 0.5f);
 	 }

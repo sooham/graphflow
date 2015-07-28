@@ -2970,9 +2970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e0e29e8550c4bc59b4e5c385fb1269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamePlayTextField: {fileID: 2020837134}
-  dialogueTextField: {fileID: 1221918729}
-  closeUpTextField: {fileID: 1854855651}
   gamePlayTextBox: {fileID: 1028576035}
   dialogueTextBox: {fileID: 156860836}
   closeUpTextBox: {fileID: 1301738504}
@@ -2985,8 +2982,7 @@ MonoBehaviour:
   - Look at how the lab is littered with trash
   - To clean it up, move to the dirty tile and use inspect by dragging and dropping
     the magnifying glass
-  - Try cleaning up all the tiles in the lab and reaching the star. Bye bye.  Press
-    space to dismiss
+  - Try cleaning up all the tiles in the lab and reaching the star. Bye bye.
   femaleVoice:
   - {fileID: 8300000, guid: 22546641ae8ac41e19f04b6e1f8b67ff, type: 3}
   - {fileID: 8300000, guid: df1cd5768b7f04880bf5db65e18a95e3, type: 3}
@@ -3263,11 +3259,6 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!224 &2020837134 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 22488368, guid: 3b6a9e0b2b62840d9a9a575958e39c3c,
-    type: 2}
-  m_PrefabInternal: {fileID: 552256419}
 --- !u!1001 &2042809545
 Prefab:
   m_ObjectHideFlags: 0
