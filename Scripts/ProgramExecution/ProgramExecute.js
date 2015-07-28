@@ -24,11 +24,6 @@ function Awake() {
 //################## EXECUTION FUNCTIONS #############################
 
 public function ProgramExecute(functionPanel : Transform) {
-	if (!gotPlayerInfo) {
-		player = GameObject.FindWithTag("Player");
-		PlayerMove = player.GetComponent(PlayerMovement);
-		gotPlayerInfo = true;
-	}
 	/* To be called by the play button in FunctionHUD
 	 *
 	 * This function takes in a functionPanel and goes through the panel's
@@ -36,6 +31,11 @@ public function ProgramExecute(functionPanel : Transform) {
 	 * as a Coroutine to create artificial step like delays.
 	 *
 	 */
+	if (!gotPlayerInfo) {
+		player = GameObject.FindWithTag("Player");
+		PlayerMove = player.GetComponent(PlayerMovement);
+		gotPlayerInfo = true;
+	}
 
 	// call an inner anonymous function so that this function can be called via
 	// Unity on Button Press event
@@ -122,4 +122,21 @@ public function resetProgramState(levelGraphPrefab : GameObject) {
 	 newLvlGraph.name = "LevelGraph";
 
 	 // deactivation of calling button, activation of play button is done in button interface, so is stopping all coroutines
+}
+
+
+function recolorSlots(functionPanel : Transform) {
+    /* To be called by the reset button with the same argument as
+     * the one provided to execute
+     *
+     * Recolors all remaining green slots after StopAllCoroutines() is called.
+     * Otherwise the slots will all stay green.
+     */
+    if (nyanCat.isPlaying) {
+        nyanCat.Stop();
+    }
+    for (var slot : Transform in functionPanel) {
+        // color the slot to white
+        slot.gameObject.GetComponent(Image).color = new Color(1, 1, 1, 0.75);
+    }
 }
