@@ -41,7 +41,6 @@ public function removeFromProgram() {
      * last slot's item from mainProgram unless it is empty
      * Also adds in cursor if needed.
      */
-    print(cursorPos);
     if (cursorPos > 0) {
         // move the cursor back one step
         Destroy(transform.GetChild(cursorPos - 1).GetChild(0).gameObject);
