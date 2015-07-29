@@ -84,7 +84,7 @@ public function ProgramExecute(functionPanel : Transform) {
 
     		yield WaitForSeconds(waitTime);
     		// remove the color
-			slot.gameObject.GetComponent(Image).color = new Color(1, 1, 1, 0.75);
+			slot.gameObject.GetComponent(Image).color = new Color(1, 1, 1, 0);
 		}
 	}();
 }
@@ -136,7 +136,7 @@ function recolorSlots(functionPanel : Transform) {
         nyanCat.Stop();
     }
     for (var slot : Transform in functionPanel) {
-        // color the slot to white
-        slot.gameObject.GetComponent(Image).color = new Color(1, 1, 1, 0.75);
+        // color the slot to transparent
+        slot.gameObject.GetComponent(Image).color = new Color(1, 1, 1, 0);
     }
 }

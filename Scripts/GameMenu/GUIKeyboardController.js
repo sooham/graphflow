@@ -8,6 +8,7 @@ import UnityEngine.EventSystems;
  */
 
 public var buttons : Button[]; // List of buttons to be keyboard iterated - in correct order
+public var updown : boolean = true;  // Is this naviagtion style up to down , left to right if false
 private var current : int = 0;
 private var direction: int;
 function Update() {
@@ -16,15 +17,19 @@ function Update() {
 	 */
 	var pointer = new PointerEventData(EventSystem.current);
 
+    if (updown) {
 	// Check if keyboard input and increase / decrease the current button
-	if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W)) {direction = 1;}
-	if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S)) {direction = -1;}
+        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W)) {direction = -1;}
+        if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S)) {direction = 1;}
+    } else {
+        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A)) {direction = -1;}
+        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D)) {direction = 1;}
+    }
 
 	// if keyboard input stop highlighting old button
 	if (direction != 0) {
 		ExecuteEvents.Execute(buttons[current].gameObject, pointer, ExecuteEvents.pointerExitHandler);
 	}
-
 
 	// get and highlight new buttons
 	if (current == 0 && direction < 0) {
@@ -43,4 +48,21 @@ function Update() {
 	}
 	// reset the direction
 	direction = 0;
+}
+
+public function dealWithPlayPauseHighlighting(pressed: String) {
+    // Changes the index of the play pasuse button in buttons[]
+    // Thereby highlighting it instead
+    // To be only use for moveTray
+     var temp;
+    if (pressed == 'Play') {
+        temp = buttons[7];
+        buttons[7] = buttons[8];
+        buttons[8] = temp;
+    }
+    if (pressed == 'Pause') {
+        temp = buttons[8];
+        buttons[8] = buttons[7];
+        buttons[7] = temp;
+    }
 }
