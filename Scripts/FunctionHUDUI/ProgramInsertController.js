@@ -55,7 +55,8 @@ function Start() {
 }
 
 function Update () {
-    if (Input.GetKeyUp(KeyCode.Delete)) {
+    if (Input.GetKeyUp(KeyCode.Backspace)) {
+        print('pressed');
         removeFromProgram();
     }
 }

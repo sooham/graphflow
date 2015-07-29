@@ -1724,6 +1724,7 @@ MonoBehaviour:
   buttons:
   - {fileID: 1746098899}
   - {fileID: 408921365}
+  updown: 1
 --- !u!1 &1574999631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,6 +2105,7 @@ MonoBehaviour:
   buttons:
   - {fileID: 1158332512}
   - {fileID: 1361586370}
+  updown: 1
 --- !u!1 &1992773382
 GameObject:
   m_ObjectHideFlags: 0

@@ -99,7 +99,7 @@ function Update() {
 
     function (){
         if (introCutsceneFinished) {
-            yield WaitForSeconds(7.5);
+            yield WaitForSeconds(3);
             // disable all cutscene items
             gamePlayTextBox.SetActive(false);
             gameObject.SetActive(false);
@@ -113,8 +113,6 @@ function Update() {
 function changeText(newText : String, textfield : Transform) {
 	/* Changes the textfield's objects text component to newText
 	 */
-    print(stage);
-
     textfield.GetComponent(UI.Text).text = newText;
     // play the appropriate voice
     audioComponent.clip = femaleVoice[stage];

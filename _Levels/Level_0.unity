@@ -12654,7 +12654,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411788, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: gamePlayTextField
@@ -12722,43 +12722,43 @@ Prefab:
       objectReference: {fileID: 8300000, guid: d599ec752092f43dc8dd8436bbe5ccc9, type: 3}
     - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: dialogue.Array.data[8]
-      value: Chain moves in a sequence to do them one by one - maybe try and get to
-        the star first? I will leave you to it! Bye Bye!
+      value: Now try and get to the star! Bye bye!
       objectReference: {fileID: 0}
     - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: dialogue.Array.data[7]
-      value: Good job! That's how you move. Now press the stop button. Then press
-        space
+      value: Good job! That's how you move!
       objectReference: {fileID: 0}
     - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: dialogue.Array.data[6]
-      value: Drag the forward arrow to the first slot below and press play. Then press
-        space
+      value: You cannot move beyond the edge of a linked list. Use back space if you
+        make a mistake.
       objectReference: {fileID: 0}
     - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: dialogue.Array.data[5]
-      value: Okay let's teach you how to move first.
+      value: 'Once you have selected a move - press the play button to run it on the
+        linked list. Try moving forwards. '
       objectReference: {fileID: 0}
     - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: dialogue.Array.data[4]
-      value: Don't worry, I will show you how to do it first, it ain't no big deal.
+      value: Use left right arrow keys to select a move. Then press enter to select
+        it. Press space to dismiss
       objectReference: {fileID: 0}
     - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: dialogue.Array.data[3]
-      value: A roomba like you out of the factory must train somehow. haha.
+      value: First - let me show you how to move on linked lists
       objectReference: {fileID: 0}
     - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: dialogue.Array.data[2]
-      value: I'm your cousin and tutor, I have been keeping this lab clean for two
-        years now. I think it is your turn to help me out!
+      value: I have been keeping the linked lists here clean for a while now - help
+        me out.
       objectReference: {fileID: 0}
     - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: dialogue.Array.data[1]
-      value: How are you? Welcome to the lab.
+      value: Hello, I'm Ada. Welcome to the lab. Here we live by cleaning linked lists.
       objectReference: {fileID: 0}
     - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: dialogue.Array.data[0]
-      value: Hello. Press space
+      value: Press space
       objectReference: {fileID: 0}
     - target: {fileID: 11473464, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: dialogueTextBox
@@ -12771,6 +12771,10 @@ Prefab:
     - target: {fileID: 11401590, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488928, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
+      propertyPath: m_Text
+      value: Press enter to space...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86dbc5a1bf0d7451ab4e63d68b22577e, type: 2}
