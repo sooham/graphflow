@@ -2745,11 +2745,10 @@ MonoBehaviour:
   gameCameras: {fileID: 102184329}
   dialogue:
   - Press space
-  - Hi. Now I will introduce you to the inspect function
-  - It is quite useful.
+  - Hi - now you will learn how to inspect a linked list
+  - It is quite useful for cleaning the lab.
   - Look at how the lab is littered with trash
-  - To clean it up, move to the dirty tile and use inspect by dragging and dropping
-    the magnifying glass
+  - To clean litter, move to the correct node and execute inspect (magnifying glass)
   - Try cleaning up all the tiles in the lab and reaching the star. Bye bye.
   femaleVoice:
   - {fileID: 8300000, guid: 22546641ae8ac41e19f04b6e1f8b67ff, type: 3}
