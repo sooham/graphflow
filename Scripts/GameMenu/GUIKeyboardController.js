@@ -54,7 +54,7 @@ public function dealWithPlayPauseHighlighting(pressed: String) {
     // Changes the index of the play pasuse button in buttons[]
     // Thereby highlighting it instead
     // To be only use for moveTray
-     var temp;
+     var temp: Button;
     if (pressed == 'Play') {
         temp = buttons[7];
         buttons[7] = buttons[8];
