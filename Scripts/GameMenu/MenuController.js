@@ -1,7 +1,7 @@
 #pragma strict
 
 import UnityEngine.Audio;
-// Attatch this script to GameMenu object, which is the root of the Main Menu UI 
+// Attatch this script to GameMenu object, which is the root of the Main Menu UI
 
 private var mask : GameObject;
 private var homeMenu : GameObject;
@@ -24,11 +24,11 @@ public function activateHomeMenu() {
 	 /* goes through and sets GameMenu (gameObject) back to initial state.
 	 * called by pressing the back button.
 	 *
-	 * Initial State: HomeMenu active , Title active and Mask active
+	 * Initial State: HomeMenu active , Title active, Arrow Keys and Mask active
 	 */
 	 mask.GetComponent(Animator).SetTrigger('show');
 	 for (var childComponent: Transform in transform) {
-	 	childComponent.gameObject.SetActive(childComponent.name in ["HomeMenu", "Mask", "Title"]);
+	 	childComponent.gameObject.SetActive(childComponent.name in ["HomeMenu", "Mask", "ArrowKeys", "Title"]);
 	 }
 }
 
@@ -46,7 +46,7 @@ public function activateSettingsMenu() {
 
 public function quitGame() {
 	/* Quits the GameObject
-	 * 
+	 *
 	 * Called by pressing the quit button in HomeMenu
 	 */
 
