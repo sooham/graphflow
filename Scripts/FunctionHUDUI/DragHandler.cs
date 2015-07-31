@@ -24,13 +24,16 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		 */
 		List<string> keepComponents = new List<string>();
 
-		keepComponents.Add("MoveTray"); 
-		keepComponents.Add("MainProgram"); 
+		keepComponents.Add("MoveTray");
+		keepComponents.Add("MainProgram");
 		keepComponents.Add("CamChangeBtn");
-		keepComponents.Add("PlayBtn"); 
+		keepComponents.Add("PlayBtn");
 		keepComponents.Add("ResetBtn");
 		keepComponents.Add("GameplayPlayerBox");
 		keepComponents.Add("LoadingScreen");
+		keepComponents.Add("MoveKeyboard");
+		keepComponents.Add("Instructions");
+
 
 		foreach (Transform child in FunctionHUD) {
 			if (!keepComponents.Contains (child.name)) {

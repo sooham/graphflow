@@ -1,6 +1,10 @@
 ﻿#pragma strict
 
-var loadingScreen : GameObject;
+private var loadingScreen : GameObject;
+
+function Start() {
+    loadingScreen = GameObject.Find('/FunctionHUD/LoadingScreen');
+}
 
 function Update () {
 	WaitPlayerReachStar();
@@ -9,7 +13,7 @@ function Update () {
 function WaitPlayerReachStar() {
 	if (transform.Find("PlayerM") || transform.Find("PlayerF")) {
 		yield WaitForSeconds(1);
-		loadingScreen.SetActive(true);
+		loadingScreen.transform.GetChild(0).gameObject.SetActive(true);
 		Application.LoadLevelAsync(Application.loadedLevel + 1);
 	}
 }

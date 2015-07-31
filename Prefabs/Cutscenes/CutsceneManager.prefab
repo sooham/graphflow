@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &147070
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,7 +778,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hello? You there?
+  m_Text: 
 --- !u!114 &11407982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -793,7 +793,7 @@ MonoBehaviour:
   xOffset: 0
   yOffset: 330
   wantOppositePlayerGender: 1
-  findString: /CutsceneManager/CutsceneObjects/
+  findString: /IntroCutsceneManager/CutsceneObjects/
 --- !u!114 &11410448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -892,10 +892,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Hello.
-
-
-    Press space'
+  m_Text: 
 --- !u!114 &11463564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -949,36 +946,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d157c9e6b4a1e41398dfa91b5d73d4da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamePlayTextField: {fileID: 0}
-  dialogueTextField: {fileID: 22414534}
-  closeUpTextField: {fileID: 22458650}
   gamePlayTextBox: {fileID: 0}
   dialogueTextBox: {fileID: 182074}
   closeUpTextBox: {fileID: 147412}
   functionHUD: {fileID: 0}
   gameCameras: {fileID: 0}
   dialogue:
-  - how are you? Welcome to the lab.
-  - I'm your cousin and tutor, I have been keeping this lab clean for two years now.
-    I think it is your turn to help me out!
-  - A roomba like you out of the factory must train somehow. haha.
-  - Don't worry, I will show you how to do it first, it ain't no big deal.
-  - Okay let's teach you how to move first.
-  - Drag the forward arrow to the first slot below and press play. Then press space
-  - Good job! That's how you move. Now press the stop button. Then press space
-  - Chain moves in a sequence to do them one by one - maybe try and get to the star
-    first? I will leave you to it! Bye Bye!
-  - Left Intentionally Empty
-  maleVoice:
-  - {fileID: 8300000, guid: 02f9d0881d7be4a13bd574d031455809, type: 3}
-  - {fileID: 8300000, guid: aa1661eac9d9e4bcf9100b4525d65fea, type: 3}
-  - {fileID: 8300000, guid: a6bff34955ae841c987676daeb2ec5c5, type: 3}
-  - {fileID: 8300000, guid: 335a6b86b49e34dd097dea4beeb6cd9d, type: 3}
-  - {fileID: 8300000, guid: 95a83edcfe4364ae48f5238444878e50, type: 3}
-  - {fileID: 8300000, guid: 3b50f77ef5e4445898788d5472d46df4, type: 3}
-  - {fileID: 8300000, guid: f389026260ff94ccaba248995ec1762e, type: 3}
-  - {fileID: 8300000, guid: 99f8544f262604a43a085c92b91213ed, type: 3}
+  - Press space
+  - Hello, I'm Ada. Welcome to the lab. Here we live by cleaning linked lists.
+  - I have been keeping the linked lists here clean for a while now - help me out.
+  - First - let me show you how to move on linked lists
+  - Use left right arrow keys to select a move. Then press enter to select it. Press
+    space to dismiss
+  - 'Once you have selected a move - press the play button to run it on the linked
+    list. Try moving forwards. '
+  - You cannot move beyond the edge of a linked list. Use back space if you make a
+    mistake.
+  - Good job! That's how you move!
+  - Now try and get to the star! Bye bye!
   femaleVoice:
+  - {fileID: 8300000, guid: 1a6c2b2d153c54cfb89f0e134dac1955, type: 3}
   - {fileID: 8300000, guid: 7561575d592f146f88045356fbc63016, type: 3}
   - {fileID: 8300000, guid: b0708de4518294a699ef48efe1ba5cd7, type: 3}
   - {fileID: 8300000, guid: bc8e3320ae45e40948250e1f88b080ab, type: 3}
@@ -1033,7 +1020,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press space to continue...
+  m_Text: Press enter to space...
 --- !u!114 &11489706
 MonoBehaviour:
   m_ObjectHideFlags: 1
