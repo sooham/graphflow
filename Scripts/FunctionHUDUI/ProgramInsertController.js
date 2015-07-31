@@ -7,7 +7,7 @@
  */
 
 static var cursor : Transform;
-static var cursorPos : int = 0;
+static var cursorPos : int;
 /******************** HELPER FUNCTIONS********************/
 public function insertIntoProgram(button: GameObject) {
     /* To be called by every button in moveTray upon button press
@@ -51,6 +51,7 @@ public function removeFromProgram() {
 
 /******************** NATIVE FUNCTIONS********************/
 function Start() {
+    cursorPos = 0;
     cursor = transform.GetChild(cursorPos).GetChild(0);
 }
 

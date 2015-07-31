@@ -45,8 +45,9 @@ public function ProgramExecute(functionPanel : Transform) {
 			// color the slot green to show its executing
 			slot.gameObject.GetComponent(Image).color = new Color(0, 1, 0, 0.75);
 
-			if (slot.childCount > 0) {
+			if (slot.childCount > 0 && slot.GetChild(0).name != 'Cursor') {
 				// Start playing nyanCat if it is not playing when we see full slots
+                // that are not cursor
 				if (!nyanCat.isPlaying) {
 					nyanCat.Play();
 				}
@@ -56,23 +57,18 @@ public function ProgramExecute(functionPanel : Transform) {
 				switch (slotItemName) {
 				// call the appropriate function from the PlayerMovement script
     			case "Forward":
-    				print("Told to move forward");
     				PlayerMove.moveOneUnit();
         			break;
         		case "TurnLeft":
-        			print("Told to turn left");
     				PlayerMove.TurnLeft();
         			break;
         		case "TurnRight":
-        			print("Told to turn right");
     				PlayerMove.TurnRight();
         			break;
         		case "Inspect":
-        			print("Told to inspect");
         			PlayerMove.inspectNode();
         			break;
         		case "Recurse":
-        			print("Told to turn recurse");
         			break;
     			default:
         			break;

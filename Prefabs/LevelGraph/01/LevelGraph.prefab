@@ -113,6 +113,7 @@ GameObject:
   - 114: {fileID: 11479274}
   - 114: {fileID: 11488032}
   - 64: {fileID: 6490390}
+  - 114: {fileID: 11452020}
   m_Layer: 11
   m_Name: NodeN
   m_TagString: Node
@@ -1870,6 +1871,17 @@ MonoBehaviour:
   size: {x: 1, y: 1, z: 1}
   userSetDimensions: 0
   _entityType: 0
+--- !u!114 &11452020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f8cbca3573f48069bee14f13023e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11461624
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -27,7 +27,7 @@ private var audioComponent : AudioSource;
 function Start() {
     audioComponent = GetComponent.<AudioSource>();
     gamePlayTextField = gamePlayTextBox.transform.GetChild(0);
-    dialogueTextField = dialogueTextBox.transform.GetChild(0).transform.GetChild(0);    // This textbox has an inner textbox
+    dialogueTextField = dialogueTextBox.transform.GetChild(0).transform.GetChild(0);    // This text box has an inner text box
     closeUpTextField = closeUpTextBox.transform.GetChild(0);
     // Play the first voice clip
     changeText(dialogue[stage], closeUpTextField);
@@ -46,7 +46,7 @@ function Update() {
                 case 1:
                     break;
 				case 2:
-					// transition to the game view with functionHUD play button diabled
+					// transition to the game view with functionHUD play button disabled
 					transform.GetChild(1).Find("PlayerIntroCam").gameObject.SetActive(false);
 					gameCameras.SetActive(true);
 					closeUpTextBox.SetActive(false);
@@ -89,7 +89,7 @@ function Update() {
 //################## TEXT CHANGING ########################################
 
 function changeText(newText : String, textfield : Transform) {
-	/* Changes the textfield's objects text component to newText
+	/* Changes the text field's objects text component to newText
 	 */
     textfield.GetComponent(UI.Text).text = newText;
     // play the appropriate voice
