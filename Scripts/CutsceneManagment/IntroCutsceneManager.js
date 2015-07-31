@@ -37,7 +37,7 @@ function Start() {
 
 function Update() {
 	if (stage < dialogue.length) {
-		if (Input.GetKeyUp(KeyCode.Space)) {
+		if (Input.GetKeyDown(KeyCode.Space)) {
             // The starting text field is the close up text field for intros
 			var textField = closeUpTextField;
             // change the text and views for certain dialogues
@@ -61,7 +61,7 @@ function Update() {
 					closeUpTextBox.SetActive(true);
 					break;
 				case 3:
-					// transition to the game view with functionHUD play button diabled
+					// transition to the game view with functionHUD play button disabled
 					transform.GetChild(1).Find("PlayerIntroCam").gameObject.SetActive(false);
 					gameCameras.SetActive(true);
 					closeUpTextBox.SetActive(false);
