@@ -40,7 +40,6 @@ public function ProgramExecute(functionPanel : Transform) {
 	// call an inner anonymous function so that this function can be called via
 	// Unity on Button Press event
 	function () {
-
 		for (var slot : Transform in functionPanel) {
 			// color the slot green to show its executing
 			slot.gameObject.GetComponent(Image).color = new Color(0, 1, 0, 0.75);
@@ -65,10 +64,11 @@ public function ProgramExecute(functionPanel : Transform) {
         		case "TurnRight":
     				PlayerMove.TurnRight();
         			break;
-        		case "Inspect":
-        			PlayerMove.inspectNode();
+        		case "Clean":
+        			PlayerMove.cleanNode();
         			break;
-        		case "Recurse":
+        		case "Plant":
+                    PlayerMove.plantNode();
         			break;
     			default:
         			break;

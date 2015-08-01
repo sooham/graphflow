@@ -139,18 +139,18 @@ public function TurnRight() {
 	Turn(90.0f);
 }
 
-public function inspectNode() {
+public function cleanNode() {
 	/* Makes the player inspect the current node
-	 * This function is called by program executer when it sees the inspect sign
+	 * This function is called by program executer when it sees the clean sign
 	 *
 	 * all items to be deleted from the node must be tagged "Trash"
-	 * all stars must be Tagged "Star"
+     * cleaning a node with a star is supported but will be removed soon
 	 */
 
 	 // get the parent Node
 	 var playErrorSound : boolean = true;
 	 var currentNode : Transform = transform.parent;
-	 // go through the childern of the node player is currently on, looking for object like stars and trash
+	 // go through the children of the node player is currently on, looking for object like stars and trash
 	 for (var child : Transform in currentNode) {
 	 	switch (child.tag) {
 	 		case "Trash":
@@ -174,4 +174,10 @@ public function inspectNode() {
 	 if (playErrorSound) {
 	 	AudioSource.PlayClipAtPoint(errorSound, transform.position, 0.5f);
 	 }
+}
+
+public function plantNode() {
+    /* Inserts a random plant from a list of plants onto a node
+     * Cannot plant trees on currently occupied nodes
+     */
 }

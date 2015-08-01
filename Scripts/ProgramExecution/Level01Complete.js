@@ -13,6 +13,6 @@ function WaitPlayerReachStarAndTrashCollected() {
         loadingScreen = GameObject.Find('/FunctionHUD/LoadingScreen');
 		yield WaitForSeconds(1);
 		loadingScreen.transform.GetChild(0).gameObject.SetActive(true);
-		Application.LoadLevel(0);
+		Application.LoadLevel(Application.loadedLevel + 1);
 	}
 }
