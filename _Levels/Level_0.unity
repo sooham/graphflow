@@ -328,6 +328,12 @@ MonoBehaviour:
   blockedSound: {fileID: 8300000, guid: 9753b810e78ce4a7fa5116e20830f9ae, type: 3}
   pickupSound: {fileID: 8300000, guid: 79ca3d1840a5144e8aa9c05ade901a28, type: 3}
   errorSound: {fileID: 8300000, guid: dcf04f69a32bb4fa7a87e435f72037cd, type: 3}
+  trees:
+  - {fileID: 100000, guid: c924436ea746f194ab37793bb9b5245d, type: 2}
+  - {fileID: 100000, guid: 2a9b698475d851b498901ddec2a20d20, type: 2}
+  - {fileID: 100000, guid: e83537fb838baa643a52a6014130e5b9, type: 2}
+  - {fileID: 100000, guid: 63a817188b037ce49bfb05261a507c67, type: 2}
+  - {fileID: 100000, guid: a5039d1d69750c146b714ec2cd5a6c77, type: 2}
   playerFacing: N
 --- !u!65 &515711756
 BoxCollider:
@@ -1119,6 +1125,12 @@ MonoBehaviour:
   blockedSound: {fileID: 8300000, guid: 9753b810e78ce4a7fa5116e20830f9ae, type: 3}
   pickupSound: {fileID: 8300000, guid: 79ca3d1840a5144e8aa9c05ade901a28, type: 3}
   errorSound: {fileID: 8300000, guid: dcf04f69a32bb4fa7a87e435f72037cd, type: 3}
+  trees:
+  - {fileID: 100000, guid: c924436ea746f194ab37793bb9b5245d, type: 2}
+  - {fileID: 100000, guid: 2a9b698475d851b498901ddec2a20d20, type: 2}
+  - {fileID: 100000, guid: e83537fb838baa643a52a6014130e5b9, type: 2}
+  - {fileID: 100000, guid: 63a817188b037ce49bfb05261a507c67, type: 2}
+  - {fileID: 100000, guid: a5039d1d69750c146b714ec2cd5a6c77, type: 2}
   playerFacing: N
 --- !u!65 &1052459532
 BoxCollider:
@@ -2986,6 +2998,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 173178, guid: 88bba577b4cd942028057f2ac5516f2f, type: 2}
+    - target: {fileID: 11480220, guid: 566a18765e065418ea0d8c1a3bc5dae6, type: 2}
+      propertyPath: moveRate
+      value: .109999999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 566a18765e065418ea0d8c1a3bc5dae6, type: 2}
   m_IsPrefabParent: 0

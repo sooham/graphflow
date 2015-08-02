@@ -9,7 +9,7 @@ import UnityEngine.EventSystems;
 
 public var buttons : Button[]; // List of buttons to be keyboard iterated - in correct order
 public var updown : boolean = true;  // Is this navigation style up to down , left to right if false
-public var moveRate : float = 0.5f;
+public var moveRate : float = 0.11f;
 
 private var current : int = 0;
 private var direction: int;

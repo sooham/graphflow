@@ -661,7 +661,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: No nodes
+  m_Text: "\u2588"
 --- !u!222 &587820650
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1931,7 +1931,7 @@ MonoBehaviour:
   buttons:
   - {fileID: 1746098899}
   updown: 1
-  moveRate: .5
+  moveRate: .109999999
 --- !u!1 &1634369991
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,7 +2577,7 @@ MonoBehaviour:
   correct: {fileID: 8300000, guid: 79ca3d1840a5144e8aa9c05ade901a28, type: 3}
   incorrect: {fileID: 8300000, guid: 9753b810e78ce4a7fa5116e20830f9ae, type: 3}
   loadingScreen: {fileID: 1332178640}
-  nextScene: 0
+  nextScene: 6
 --- !u!82 &1984048883
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2703,7 +2703,7 @@ MonoBehaviour:
   - {fileID: 945926283}
   - {fileID: 129990635}
   updown: 1
-  moveRate: .5
+  moveRate: .109999999
 --- !u!222 &2015028262
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2766,7 +2766,7 @@ MonoBehaviour:
   - {fileID: 899334527}
   - {fileID: 2111145037}
   updown: 1
-  moveRate: .5
+  moveRate: .109999999
 --- !u!222 &2073763138
 CanvasRenderer:
   m_ObjectHideFlags: 0

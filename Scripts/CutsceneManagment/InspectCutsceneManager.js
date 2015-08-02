@@ -77,7 +77,7 @@ function Update() {
 
     function (){
         if (introCutsceneFinished) {
-            yield WaitForSeconds(4.5);
+            yield WaitForSeconds(7);
             // disable all cutscene items
             gamePlayTextBox.SetActive(false);
             gameObject.SetActive(false);

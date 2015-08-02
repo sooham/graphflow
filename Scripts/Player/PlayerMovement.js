@@ -17,7 +17,7 @@ var movementTime : float = 0.5f;			// The time to conduct a move
 var blockedSound : AudioClip;				// The sound to play when blocked
 var pickupSound : AudioClip;				// The sound to play when picking up trash
 var errorSound : AudioClip;					// The sound to play when there are no objects to pickup
-
+var trees : GameObject[];                    // A list of tree objects we can spawn
 /* Compass directions
  * North is the direction towards the robot arm and the gantry
  */
@@ -180,4 +180,17 @@ public function plantNode() {
     /* Inserts a random plant from a list of plants onto a node
      * Cannot plant trees on currently occupied nodes
      */
+    // Get the current node the player is on
+    var currentNode : Transform = transform.parent;
+    for (var child: Transform in currentNode) {
+        if (child.tag == "Trash" || child.tag == "Tree") {
+            AudioSource.PlayClipAtPoint(errorSound, transform.position, 0.5f);
+            return;
+        }
+    }
+    // no trash on the node, plant tree
+    var tree = trees[Mathf.FloorToInt(Random.Range(0.0f,trees.length - 0.01))];
+    var treeCopy = Instantiate(tree, transform.position, tree.transform.rotation) as GameObject;
+    treeCopy.name = tree.name;
+    treeCopy.transform.SetParent(currentNode);
 }

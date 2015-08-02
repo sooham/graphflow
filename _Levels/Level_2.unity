@@ -790,7 +790,7 @@ MonoBehaviour:
   - {fileID: 1581616563}
   - {fileID: 1389736430}
   updown: 1
-  moveRate: .5
+  moveRate: .109999999
 --- !u!222 &539049367
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2668,7 +2668,7 @@ MonoBehaviour:
   buttons:
   - {fileID: 1746098899}
   updown: 1
-  moveRate: .5
+  moveRate: .109999999
 --- !u!1 &1581616561
 GameObject:
   m_ObjectHideFlags: 0
@@ -3555,7 +3555,7 @@ MonoBehaviour:
   - {fileID: 945926283}
   - {fileID: 129990635}
   updown: 1
-  moveRate: .5
+  moveRate: .109999999
 --- !u!222 &2015028262
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3618,7 +3618,7 @@ MonoBehaviour:
   - {fileID: 899334527}
   - {fileID: 2111145037}
   updown: 1
-  moveRate: .5
+  moveRate: .109999999
 --- !u!222 &2073763138
 CanvasRenderer:
   m_ObjectHideFlags: 0
