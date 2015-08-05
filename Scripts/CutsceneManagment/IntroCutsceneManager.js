@@ -37,7 +37,7 @@ function Start() {
 
 function Update() {
 	if (stage < dialogue.length) {
-		if (Input.GetKeyDown(KeyCode.Space)) {
+		if (Input.GetKeyDown(KeyCode.Return)) {
             // The starting text field is the close up text field for intros
 			var textField = closeUpTextField;
             // change the text and views for certain dialogues

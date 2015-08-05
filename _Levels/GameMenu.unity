@@ -334,7 +334,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 206793543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1175a8aeef81c4fea88a3decbe5b8e03, type: 3}
   m_Name: 
@@ -707,12 +707,12 @@ GameObject:
   - 222: {fileID: 675527555}
   - 114: {fileID: 675527554}
   m_Layer: 5
-  m_Name: ArrowKeys
+  m_Name: ArrowKeys-Remove if keyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &675527553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1454,7 +1454,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1557014671}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39bfec3c9e42e49458bcd9d3609d10f0, type: 3}
   m_Name: 
@@ -1903,7 +1903,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1984048879}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39bfec3c9e42e49458bcd9d3609d10f0, type: 3}
   m_Name: 

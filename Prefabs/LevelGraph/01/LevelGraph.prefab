@@ -224,6 +224,7 @@ GameObject:
   - 4: {fileID: 433354}
   - 198: {fileID: 19803548}
   - 199: {fileID: 19908736}
+  - 82: {fileID: 8287874}
   m_Layer: 0
   m_Name: Holy Blast
   m_TagString: Untagged
@@ -294,7 +295,7 @@ GameObject:
   - 114: {fileID: 11420180}
   m_Layer: 11
   m_Name: star
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,8 +367,7 @@ Transform:
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .200000003, y: .200000003, z: .200000003}
-  m_Children:
-  - {fileID: 433354}
+  m_Children: []
   m_Father: {fileID: 471750}
   m_RootOrder: 0
 --- !u!4 &411792
@@ -452,14 +452,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155558}
-  m_LocalRotation: {x: -1, y: 0, z: 0, w: -8.94069672e-08}
+  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 464970}
   - {fileID: 443942}
-  m_Father: {fileID: 407940}
-  m_RootOrder: 0
+  m_Father: {fileID: 471750}
+  m_RootOrder: 1
 --- !u!4 &437634
 Transform:
   m_ObjectHideFlags: 1
@@ -589,6 +589,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 407940}
+  - {fileID: 433354}
   m_Father: {fileID: 485132}
   m_RootOrder: 0
 --- !u!4 &485132
@@ -1068,6 +1069,75 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.1232307, y: .621865511, z: 2.97173524}
   m_Center: {x: -.000199913979, y: .00287167681, z: -.155411333}
+--- !u!82 &8287874
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155558}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ff7ad62847a444ceb8435b0ea1108946, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11401192
 MonoBehaviour:
   m_ObjectHideFlags: 1
