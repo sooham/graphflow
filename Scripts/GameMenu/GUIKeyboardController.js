@@ -64,20 +64,3 @@ function Update() {
 	// reset the direction
 	direction = 0;
 }
-
-public function dealWithPlayPauseHighlighting(pressed: String) {
-    // Changes the index of the play pasuse button in buttons[]
-    // Thereby highlighting it instead
-    // To be only use for moveTray
-     var temp: Button;
-    if (pressed == 'Play') {
-        temp = buttons[7];
-        buttons[7] = buttons[8];
-        buttons[8] = temp;
-    }
-    if (pressed == 'Pause') {
-        temp = buttons[8];
-        buttons[8] = buttons[7];
-        buttons[7] = temp;
-    }
-}

@@ -9,16 +9,41 @@ import UnityEngine.UI;
  */
 
 var waitTime : float = 0.5f;				// The time between each instruction
+var levelGraph : GameObject;                // The level graph prefab for the game
+var mainProgram: Transform;                 // The mainProgram panel
+var pauseScreen: GameObject;
+var loadingScreen : GameObject;
 
 private var player : GameObject;			// The player
 private var nyanCat : AudioSource;			// The nyanCat audio to play
 private var PlayerMove : PlayerMovement;
 private var gotPlayerInfo : boolean = false;		// did we get the player info (DO NOT REMOVE!!!)
+private var paused : boolean = false;
 //################## UNITY NATIVE FUNCTIONS #########################
 
 function Awake() {
 	// Gets all needed variables before hand to optimise
 	nyanCat = gameObject.GetComponent(AudioSource);
+}
+
+function Update() {
+    if (paused) {
+        Time.timeScale = 0;
+        pauseScreen.SetActive(loadingScreen.activeSelf == false);
+        if (Input.anyKeyDown) {
+            // call reset
+            StopAllCoroutines();
+            resetProgramState(levelGraph);
+            recolorSlots(mainProgram);
+            for (var i = 0; i < 12; i++) {
+                mainProgram.GetComponent(ProgramInsertController).removeFromProgram();
+            }
+            pauseScreen.SetActive(false);
+            Time.timeScale = 1;
+            paused = false;
+        }
+    }
+
 }
 
 //################## EXECUTION FUNCTIONS #############################
@@ -30,6 +55,8 @@ public function ProgramExecute(functionPanel : Transform) {
 	 * slots, identifying each symbol and executing the corresponding function
 	 * as a Coroutine to create artificial step like delays.
 	 *
+     * After the player has finished moving, shows a prompt 'press any key...'
+     * and resets the stage upon anykey press
 	 */
 	if (!gotPlayerInfo) {
 		player = GameObject.FindWithTag("Player");
@@ -40,11 +67,12 @@ public function ProgramExecute(functionPanel : Transform) {
 	// call an inner anonymous function so that this function can be called via
 	// Unity on Button Press event
 	function () {
+        var count = 0;
 		for (var slot : Transform in functionPanel) {
-			// color the slot green to show its executing
-			slot.gameObject.GetComponent(Image).color = new Color(0, 1, 0, 0.75);
 
 			if (slot.childCount > 0 && slot.GetChild(0).name != 'Cursor') {
+                // color the slot green to show its executing
+                slot.gameObject.GetComponent(Image).color = new Color(0, 1, 0, 0.75);
 				// Start playing nyanCat if it is not playing when we see full slots
                 // that are not cursor
 				if (!nyanCat.isPlaying) {
@@ -73,9 +101,14 @@ public function ProgramExecute(functionPanel : Transform) {
     			default:
         			break;
 				}
+                count++;
 			} else {
 				// terminate nyan cat upon the all occurrences of empty slots
-				nyanCat.Stop();
+                nyanCat.Stop();
+                if (count != 0) {
+                    yield WaitForSeconds(0.7);
+                    paused = true;
+                }
 			}
 
     		yield WaitForSeconds(waitTime);
