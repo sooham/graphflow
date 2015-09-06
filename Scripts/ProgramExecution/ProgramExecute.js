@@ -23,6 +23,7 @@ private var paused : boolean = false;
 
 function Awake() {
 	// Gets all needed variables before hand to optimise
+    Time.timeScale = 1;
 	nyanCat = gameObject.GetComponent(AudioSource);
 }
 

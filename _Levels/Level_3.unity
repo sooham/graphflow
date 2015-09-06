@@ -2424,8 +2424,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1195856817}
   - {fileID: 1028576036}
+  - {fileID: 1195856817}
   - {fileID: 2145931524}
   - {fileID: 1946698213}
   - {fileID: 5344413}
@@ -2985,12 +2985,6 @@ TrailRenderer:
       rgba: 16777215
   m_MinVertexDistance: .100000001
   m_Autodestruct: 0
---- !u!114 &762126167 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11483146, guid: 7def9786304e34e91aa438067eeb235b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1381447340}
-  m_Script: {fileID: 11500000, guid: 16e7ca201d8124085929b5a85f74c2de, type: 3}
 --- !u!1 &819347211
 GameObject:
   m_ObjectHideFlags: 0
@@ -3502,7 +3496,7 @@ RectTransform:
   m_Children:
   - {fileID: 1706809497}
   m_Father: {fileID: 590589054}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4158,7 +4152,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22448090, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22448090, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -4205,7 +4199,75 @@ Prefab:
       value: 'Objective: Clean all trash from nodes and reach star.
 
 
-        Tip: Press DEL button to delete moves'
+        Tip: Press the DEL button to delete selected moves'
+      objectReference: {fileID: 0}
+    - target: {fileID: 22464754, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: .850000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 22464754, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 22464754, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: .850000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 22464754, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 22464754, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 22464754, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477962, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: ef111f5682bb040caa17ccc56cce55ca, type: 3}
+    - target: {fileID: 11474864, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_Text
+      value: Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 173472, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_Name
+      value: LRArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 22401680, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 22401680, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 22401680, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 22401504, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477962, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477962, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477962, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474864, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1334c8dc83cc4c39829c7e51a61ea42, type: 2}
@@ -4941,7 +5003,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 449332, guid: 7def9786304e34e91aa438067eeb235b, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 148964, guid: 7def9786304e34e91aa438067eeb235b, type: 2}
       propertyPath: m_IsActive
@@ -5425,7 +5487,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430754, guid: cd7035e7865024b2698bcb7ef827d333, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11443130, guid: cd7035e7865024b2698bcb7ef827d333, type: 2}
       propertyPath: levelGraph
@@ -7527,18 +7589,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2128796389}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 762126167}
-        m_MethodName: CycleCam
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2128796389

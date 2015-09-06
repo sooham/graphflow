@@ -124,19 +124,21 @@ function Turn(angle : float) {
 }
 
 public function TurnLeft() {
-	/* Turn the player -90 degrees (from North to West)
+	/* Turn the player -90 degrees (from North to West) and moves the player one unit
 	 * This function is called by program executer when it sees the turnleft sign
 	 */
 	playerFacing = (playerFacing == "N") ? "W": (playerFacing == "W" ? "S" : (playerFacing == "S" ? "E" : "N"));
 	Turn(-90.0f);
+    moveOneUnit();
 }
 
 public function TurnRight() {
-	/* Turn the player 90 degrees (from North to East)
+	/* Turn the player 90 degrees (from North to East) and moves the player one unit
 	 * This function is called by program executer when it sees the turnright sign
 	 */
 	playerFacing = (playerFacing == "N") ? "E": (playerFacing == "E" ? "S" : (playerFacing == "S" ? "W" : "N"));
 	Turn(90.0f);
+    moveOneUnit();
 }
 
 public function cleanNode() {
